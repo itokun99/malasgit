@@ -136,6 +136,11 @@ func findOrCreateConfigDir() (string, error) {
 	return folder, os.MkdirAll(folder, 0o755)
 }
 
+// Env vars read below (LAZYGIT_KEYBINDING_PLATFORM, LAZYGIT_LOG_PATH, etc.)
+// keep the upstream LAZYGIT_ prefix even though the binary is now malasgit.
+// They are public surface set in users' shell rc files; renaming them would
+// silently break every existing install on first launch after the fork.
+
 // KeybindingPlatform returns the platform whose default keybindings should be
 // used. Normally this is the OS we're running on, but it can be overridden with
 // the LAZYGIT_KEYBINDING_PLATFORM environment variable; this is useful e.g. when
