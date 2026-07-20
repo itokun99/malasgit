@@ -616,6 +616,33 @@ os:
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#using-aliases-or-functions-in-shell-commands
   shellFunctionsFile: ""
 
+# Config relating to optional AI integrations, e.g. generating commit messages
+# from staged changes.
+ai:
+  # If true, the 'g' keybinding in the commit message panel generates a commit
+  # message using the configured AI provider.
+  enabled: false
+
+  # OpenAI-compatible chat-completions endpoint. Examples:
+  # `https://api.openai.com/v1/chat/completions`,
+  # `http://localhost:11434/v1/chat/completions` for Ollama.
+  endpoint: ""
+
+  # Model name to send in the request body (e.g. `gpt-4o-mini`, `llama3.1`,
+  # `qwen2.5-coder`).
+  model: ""
+
+  # API key for the AI provider. Prefer the `AI_API_KEY` environment variable to
+  # keep the key out of dotfiles. If both are set, the environment variable wins.
+  apiKey: ""
+
+  # HTTP timeout in seconds for the AI request. Defaults to 30.
+  timeout: 30
+
+  # Maximum size of the diff sent to the AI in bytes. Diffs larger than this are
+  # truncated before sending. Defaults to 50000.
+  maxDiffSize: 50000
+
 # If true, don't display introductory popups upon opening Lazygit.
 disableStartupPopups: false
 
@@ -825,6 +852,7 @@ keybinding:
     bulkMenu: b
   commitMessage:
     commitMenu: <ctrl+o>
+    generateMessage: g
 ```
 <!-- END CONFIG YAML -->
 

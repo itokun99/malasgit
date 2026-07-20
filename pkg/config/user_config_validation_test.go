@@ -391,3 +391,78 @@ func TestUserConfigValidate_pagers(t *testing.T) {
 		})
 	}
 }
+
+func TestUserConfigValidate_ai(t *testing.T) {
+	scenarios := []struct {
+		name      string
+		setAI     func(*AIConfig)
+		valid     bool
+		errSubstr string
+	}{
+		{
+			name:  "disabled (defaults)",
+			setAI: func(c *AIConfig) {},
+			valid: true,
+		},
+		{
+			name:      "enabled without endpoint",
+			setAI:     func(c *AIConfig) { c.Enabled = true },
+			valid:     false,
+			errSubstr: "endpoint",
+		},
+		{
+			name:      "enabled with endpoint but no model",
+			setAI:     func(c *AIConfig) { c.Enabled = true; c.Endpoint = "https://api.example.com/v1/chat/completions" },
+			valid:     false,
+			errSubstr: "model",
+		},
+		{
+			name: "enabled with full config",
+			setAI: func(c *AIConfig) {
+				c.Enabled = true
+				c.Endpoint = "https://api.example.com/v1/chat/completions"
+				c.Model = "gpt-4o-mini"
+			},
+			valid: true,
+		},
+		{
+			name: "negative max diff size",
+			setAI: func(c *AIConfig) {
+				c.Enabled = true
+				c.Endpoint = "https://api.example.com/v1/chat/completions"
+				c.Model = "gpt-4o-mini"
+				c.MaxDiffSize = -1
+			},
+			valid:     false,
+			errSubstr: "maxDiffSize",
+		},
+		{
+			name: "negative timeout",
+			setAI: func(c *AIConfig) {
+				c.Enabled = true
+				c.Endpoint = "https://api.example.com/v1/chat/completions"
+				c.Model = "gpt-4o-mini"
+				c.TimeoutSeconds = -1
+			},
+			valid:     false,
+			errSubstr: "timeout",
+		},
+	}
+
+	for _, s := range scenarios {
+		t.Run(s.name, func(t *testing.T) {
+			config := GetDefaultConfig()
+			s.setAI(&config.AI)
+			err := config.Validate()
+
+			if s.valid {
+				assert.NoError(t, err)
+			} else {
+				assert.Error(t, err)
+				if s.errSubstr != "" {
+					assert.Contains(t, err.Error(), s.errSubstr)
+				}
+			}
+		})
+	}
+}

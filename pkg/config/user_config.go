@@ -23,6 +23,8 @@ type UserConfig struct {
 	QuitOnTopLevelReturn bool `yaml:"quitOnTopLevelReturn"`
 	// Config relating to things outside of Lazygit like how files are opened, copying to clipboard, etc
 	OS OSConfig `yaml:"os,omitempty"`
+	// Config relating to optional AI integrations, e.g. generating commit messages from staged changes.
+	AI AIConfig `yaml:"ai"`
 	// If true, don't display introductory popups upon opening Lazygit.
 	DisableStartupPopups bool `yaml:"disableStartupPopups"`
 	// User-configured commands that can be invoked from within Lazygit
@@ -440,6 +442,21 @@ type UpdateConfig struct {
 	Days int64 `yaml:"days" jsonschema:"minimum=0"`
 }
 
+type AIConfig struct {
+	// If true, the 'g' keybinding in the commit message panel generates a commit message using the configured AI provider.
+	Enabled bool `yaml:"enabled"`
+	// OpenAI-compatible chat-completions endpoint. Examples: `https://api.openai.com/v1/chat/completions`, `http://localhost:11434/v1/chat/completions` for Ollama.
+	Endpoint string `yaml:"endpoint,omitempty"`
+	// Model name to send in the request body (e.g. `gpt-4o-mini`, `llama3.1`, `qwen2.5-coder`).
+	Model string `yaml:"model,omitempty"`
+	// API key for the AI provider. Prefer the `AI_API_KEY` environment variable to keep the key out of dotfiles. If both are set, the environment variable wins.
+	ApiKey string `yaml:"apiKey,omitempty"`
+	// HTTP timeout in seconds for the AI request. Defaults to 30.
+	TimeoutSeconds int `yaml:"timeout,omitempty"`
+	// Maximum size of the diff sent to the AI in bytes. Diffs larger than this are truncated before sending. Defaults to 50000.
+	MaxDiffSize int `yaml:"maxDiffSize,omitempty"`
+}
+
 type KeybindingConfig struct {
 	Universal      KeybindingUniversalConfig      `yaml:"universal"`
 	Status         KeybindingStatusConfig         `yaml:"status"`
@@ -667,7 +684,8 @@ type KeybindingSubmodulesConfig struct {
 }
 
 type KeybindingCommitMessageConfig struct {
-	CommitMenu Keybinding `yaml:"commitMenu"`
+	CommitMenu      Keybinding `yaml:"commitMenu"`
+	GenerateMessage Keybinding `yaml:"generateMessage"`
 }
 
 // OSConfig contains config on the level of the os
@@ -979,9 +997,14 @@ func GetDefaultConfigForPlatform(platform string) *UserConfig {
 			Method: "prompt",
 			Days:   14,
 		},
-		ConfirmOnQuit:                false,
-		QuitOnTopLevelReturn:         false,
-		OS:                           OSConfig{},
+		ConfirmOnQuit:        false,
+		QuitOnTopLevelReturn: false,
+		OS:                   OSConfig{},
+		AI: AIConfig{
+			Enabled:        false,
+			TimeoutSeconds: 30,
+			MaxDiffSize:    50000,
+		},
 		DisableStartupPopups:         false,
 		CustomCommands:               []CustomCommand(nil),
 		Services:                     map[string]string(nil),
@@ -1175,7 +1198,8 @@ func GetDefaultConfigForPlatform(platform string) *UserConfig {
 				BulkMenu: Keybinding{"b"},
 			},
 			CommitMessage: KeybindingCommitMessageConfig{
-				CommitMenu: Keybinding{"<ctrl+o>"},
+				CommitMenu:      Keybinding{"<ctrl+o>"},
+				GenerateMessage: Keybinding{"g"},
 			},
 		},
 	}

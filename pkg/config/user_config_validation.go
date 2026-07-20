@@ -49,6 +49,9 @@ func (config *UserConfig) Validate() error {
 	if err := validatePagers(config.Git.Pagers); err != nil {
 		return err
 	}
+	if err := validateAIConfig(config.AI); err != nil {
+		return err
+	}
 	if err := validateKeybindings(config.Keybinding); err != nil {
 		return err
 	}
@@ -240,5 +243,24 @@ func validateCustomCommandPrompt(prompt CustomCommandPrompt) error {
 		}
 	}
 
+	return nil
+}
+
+func validateAIConfig(config AIConfig) error {
+	if !config.Enabled {
+		return nil
+	}
+	if config.Endpoint == "" {
+		return errors.New("ai.endpoint must be set when ai.enabled is true")
+	}
+	if config.Model == "" {
+		return errors.New("ai.model must be set when ai.enabled is true")
+	}
+	if config.MaxDiffSize < 0 {
+		return errors.New("ai.maxDiffSize must not be negative")
+	}
+	if config.TimeoutSeconds < 0 {
+		return errors.New("ai.timeout must not be negative")
+	}
 	return nil
 }
