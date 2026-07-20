@@ -49,7 +49,7 @@ func (config *UserConfig) Validate() error {
 	if err := validatePagers(config.Git.Pagers); err != nil {
 		return err
 	}
-	if err := validateAIConfig(config.AI); err != nil {
+	if err := config.AI.Validate(); err != nil {
 		return err
 	}
 	if err := validateKeybindings(config.Keybinding); err != nil {
@@ -246,7 +246,10 @@ func validateCustomCommandPrompt(prompt CustomCommandPrompt) error {
 	return nil
 }
 
-func validateAIConfig(config AIConfig) error {
+// Validate reports whether the AI configuration is internally consistent.
+// It is exported so that the AI client wiring can re-run the same checks
+// at the point of use; UserConfig.Validate delegates to it.
+func (config AIConfig) Validate() error {
 	if !config.Enabled {
 		return nil
 	}
