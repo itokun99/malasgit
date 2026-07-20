@@ -1,13 +1,13 @@
 package gui
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
-	"github.com/jesseduffield/lazygit/pkg/gui/services/custom_commands"
-	"github.com/jesseduffield/lazygit/pkg/gui/status"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/controllers"
+	"github.com/itokun99/malasgit/pkg/gui/controllers/helpers"
+	"github.com/itokun99/malasgit/pkg/gui/services/custom_commands"
+	"github.com/itokun99/malasgit/pkg/gui/status"
+	"github.com/itokun99/malasgit/pkg/gui/types"
 )
 
 func (gui *Gui) Helpers() *helpers.Helpers {

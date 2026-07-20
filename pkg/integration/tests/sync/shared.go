@@ -1,7 +1,7 @@
 package sync
 
 import (
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 func createTwoBranchesReadyToForcePush(shell *Shell) {

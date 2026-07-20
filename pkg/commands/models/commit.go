@@ -3,7 +3,7 @@ package models
 import (
 	"fmt"
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 	"github.com/stefanhaller/git-todo-parser/todo"
 )

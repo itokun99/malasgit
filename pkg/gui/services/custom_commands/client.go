@@ -1,15 +1,15 @@
 package custom_commands
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/i18n"
+	"github.com/itokun99/malasgit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/gui/controllers/helpers"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/i18n"
 	"github.com/samber/lo"
 )
 
 // Client is the entry point to this package. It returns a list of keybindings based on the config's user-defined custom commands.
-// See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Command_Keybindings.md for more info.
+// See https://github.com/itokun99/malasgit/blob/master/docs/Custom_Command_Keybindings.md for more info.
 type Client struct {
 	c                 *helpers.HelperCommon
 	handlerCreator    *HandlerCreator

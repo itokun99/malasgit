@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/constants"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/theme"
+	"github.com/itokun99/malasgit/pkg/constants"
+	"github.com/itokun99/malasgit/pkg/gui/style"
+	"github.com/itokun99/malasgit/pkg/theme"
 )
 
 // our UI command log looks like this:
@@ -32,7 +32,7 @@ func (gui *Gui) LogAction(action string) {
 	// view's autoscroll flag and the GuiLog slice, which the layout/draw code
 	// reads. Ordering between successive log calls is preserved by the FIFO the
 	// bounce enqueues onto. It's a background bounce because writing the command
-	// log is incidental display work that must not count towards lazygit being
+	// log is incidental display work that must not count towards malasgit being
 	// busy (otherwise it could block a repo switch).
 	gui.onUIThreadBackground(func() error {
 		gui.Views.Extras.Autoscroll = true
@@ -88,7 +88,7 @@ func (gui *Gui) getRandomTip() string {
 	config := gui.c.UserConfig().Keybinding
 
 	tips := []string{
-		// keybindings and lazygit-specific advice
+		// keybindings and malasgit-specific advice
 		fmt.Sprintf(
 			"To force push, press '%s' and then if the push is rejected you will be asked if you want to force push",
 			config.Universal.Push,
@@ -106,7 +106,7 @@ func (gui *Gui) getRandomTip() string {
 			"In flat file view, merge conflicts are sorted to the top. To switch to flat file view press '%s'",
 			config.Files.ToggleTreeView,
 		),
-		"If you want to learn Go and can think of ways to improve lazygit, join the team! Click 'Ask Question' and express your interest",
+		"If you want to learn Go and can think of ways to improve malasgit, join the team! Click 'Ask Question' and express your interest",
 		fmt.Sprintf(
 			"If you press '%s'/'%s' you can undo/redo your changes. Be wary though, this only applies to branches/commits, so only do this if your worktree is clear.\nDocs: %s",
 			config.Universal.Undo,
@@ -173,7 +173,7 @@ func (gui *Gui) getRandomTip() string {
 			config.Universal.PrevBlockAlt2,
 		),
 
-		"You can use lazygit with a bare repo by passing the --git-dir and --work-tree arguments as you would for the git CLI",
+		"You can use malasgit with a bare repo by passing the --git-dir and --work-tree arguments as you would for the git CLI",
 
 		// general advice
 		"`git commit` is really just the programmer equivalent of saving your game. Always do it before embarking on an ambitious change!",
@@ -185,11 +185,11 @@ func (gui *Gui) getRandomTip() string {
 
 		// links
 		fmt.Sprintf(
-			"If you want a git diff with syntax colouring, check out lazygit's integration with delta:\n%s",
+			"If you want a git diff with syntax colouring, check out malasgit's integration with delta:\n%s",
 			constants.Links.Docs.CustomPagers,
 		),
 		fmt.Sprintf(
-			"You can build your own custom menus and commands to run from within lazygit. For examples see:\n%s",
+			"You can build your own custom menus and commands to run from within malasgit. For examples see:\n%s",
 			constants.Links.Docs.CustomCommands,
 		),
 		fmt.Sprintf(

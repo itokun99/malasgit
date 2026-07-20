@@ -1,6 +1,6 @@
 package types
 
-import "github.com/jesseduffield/lazygit/pkg/gocui"
+import "github.com/itokun99/malasgit/pkg/gocui"
 
 type Views struct {
 	Status         *gocui.View

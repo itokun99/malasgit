@@ -3,9 +3,9 @@ package commands
 import (
 	"testing"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/commands/git_commands"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
 

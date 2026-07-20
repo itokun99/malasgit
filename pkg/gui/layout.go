@@ -3,9 +3,9 @@ package gui
 import (
 	"errors"
 
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 )
 
@@ -201,7 +201,7 @@ func (gui *Gui) layout(g *gocui.Gui) error {
 	}
 
 	// here is a good place log some stuff
-	// if you run `lazygit --logs`
+	// if you run `malasgit --logs`
 	// this will let you see these branches as prettified json
 	// gui.c.Log.Info(utils.AsJson(gui.State.Model.Branches[0:4]))
 	gui.helpers.Confirmation.ResizeCurrentPopupPanels()

@@ -1,8 +1,8 @@
 package interactive_rebase
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 var QuickStart = NewIntegrationTest(NewIntegrationTestArgs{

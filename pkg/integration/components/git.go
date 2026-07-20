@@ -5,7 +5,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
+	"github.com/itokun99/malasgit/pkg/commands/git_commands"
 )
 
 type Git struct {

@@ -7,7 +7,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'jesseduffield/lazygit' }}
+    if: ${{ github.repository == 'jesseduffield/malasgit' }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v7

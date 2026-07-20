@@ -3,8 +3,8 @@ package git_commands
 import (
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/gocui"
 )
 
 type TagCommands struct {

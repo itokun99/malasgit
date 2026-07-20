@@ -3,11 +3,11 @@ package gui
 import (
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/tasks"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/context"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/tasks"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/spkg/bom"
 )
 

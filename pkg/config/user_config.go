@@ -28,9 +28,9 @@ type UserConfig struct {
 	// If true, don't display introductory popups upon opening Lazygit.
 	DisableStartupPopups bool `yaml:"disableStartupPopups"`
 	// User-configured commands that can be invoked from within Lazygit
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Command_Keybindings.md
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Custom_Command_Keybindings.md
 	CustomCommands []CustomCommand `yaml:"customCommands" jsonschema:"uniqueItems=true"`
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-pull-request-urls
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-pull-request-urls
 	Services map[string]string `yaml:"services"`
 	// What to do when opening Lazygit outside of a git repo.
 	// - 'prompt': (default) ask whether to initialize a new repo or open in the most recent repo
@@ -41,7 +41,7 @@ type UserConfig struct {
 	// If true, display a confirmation when subprocess terminates. This allows you to view the output of the subprocess before returning to Lazygit.
 	PromptToReturnFromSubprocess bool `yaml:"promptToReturnFromSubprocess"`
 	// Keybindings.
-	// Each binding can be a single key or a list of keys; see https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Custom_Keybindings.md for the syntax.
+	// Each binding can be a single key or a list of keys; see https://github.com/itokun99/malasgit/blob/master/docs/keybindings/Custom_Keybindings.md for the syntax.
 	Keybinding KeybindingConfig `yaml:"keybinding"`
 }
 
@@ -52,7 +52,7 @@ type RefresherConfig struct {
 	// Re-fetch interval in seconds.
 	// Auto-fetch can be disabled via option 'git.autoFetch'.
 	FetchInterval int `yaml:"fetchInterval" jsonschema:"exclusiveMinimum=0"`
-	// Interval in seconds at which lazygit polls for external ref changes (commits, branch updates, checkouts made outside lazygit).
+	// Interval in seconds at which malasgit polls for external ref changes (commits, branch updates, checkouts made outside malasgit).
 	// Detection can be disabled via option 'git.autoDetectExternalChanges'.
 	ExternalChangeCheckInterval int `yaml:"externalChangeCheckInterval" jsonschema:"exclusiveMinimum=0"`
 }
@@ -70,21 +70,21 @@ func (c *RefresherConfig) ExternalChangeCheckIntervalDuration() time.Duration {
 }
 
 type GuiConfig struct {
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-author-color
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-author-color
 	AuthorColors map[string]string `yaml:"authorColors"`
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-branch-color
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-branch-color
 	// Deprecated: use branchColorPatterns instead
 	BranchColors map[string]string `yaml:"branchColors" jsonschema:"deprecated"`
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-branch-color
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-branch-color
 	BranchColorPatterns map[string]string `yaml:"branchColorPatterns"`
 	// Custom icons for filenames and file extensions
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-files-icon--color
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-files-icon--color
 	CustomIcons CustomIconsConfig `yaml:"customIcons"`
 	// The number of lines you scroll by when scrolling the main window
 	ScrollHeight int `yaml:"scrollHeight" jsonschema:"minimum=1"`
 	// If true, allow scrolling past the bottom of the content in the main window
 	ScrollPastBottom bool `yaml:"scrollPastBottom"`
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#scroll-off-margin
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#scroll-off-margin
 	ScrollOffMargin int `yaml:"scrollOffMargin"`
 	// One of: 'margin' (default) | 'jump'
 	ScrollOffBehavior string `yaml:"scrollOffBehavior"`
@@ -144,7 +144,7 @@ type GuiConfig struct {
 	// Uses Go's time format syntax: https://pkg.go.dev/time#Time.Format
 	ShortTimeFormat string `yaml:"shortTimeFormat"`
 	// Config relating to colors and styles.
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#color-attributes
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#color-attributes
 	Theme ThemeConfig `yaml:"theme"`
 	// Config relating to the commit length indicator
 	CommitLength CommitLengthConfig `yaml:"commitLength"`
@@ -240,7 +240,7 @@ type ThemeConfig struct {
 	// Color of keybindings help text in the bottom line
 	OptionsTextColor []string `yaml:"optionsTextColor" jsonschema:"minItems=1,uniqueItems=true"`
 	// Background color of selected line.
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#highlighting-the-selected-line
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#highlighting-the-selected-line
 	SelectedLineBgColor []string `yaml:"selectedLineBgColor" jsonschema:"minItems=1,uniqueItems=true"`
 	// Background color of selected line when view doesn't have focus.
 	InactiveViewSelectedLineBgColor []string `yaml:"inactiveViewSelectedLineBgColor" jsonschema:"minItems=1,uniqueItems=true"`
@@ -300,7 +300,7 @@ type GitConfig struct {
 	//
 	// 'pager', 'externalDiffCommand', and 'useExternalDiffGitConfig' are mutually exclusive; set at most one per entry.
 	//
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md for more information.
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Custom_Pagers.md for more information.
 	Pagers []PagingConfig `yaml:"pagers"`
 	// Config relating to committing
 	Commit CommitConfig `yaml:"commit"`
@@ -314,14 +314,14 @@ type GitConfig struct {
 	AutoFetch bool `yaml:"autoFetch"`
 	// If true, periodically refresh files and submodules
 	AutoRefresh bool `yaml:"autoRefresh"`
-	// If true, poll the repo periodically for external ref changes (commits, branch updates, checkouts made outside lazygit) and refresh when one is detected. Independent of autoRefresh, which only governs the files panel.
+	// If true, poll the repo periodically for external ref changes (commits, branch updates, checkouts made outside malasgit) and refresh when one is detected. Independent of autoRefresh, which only governs the files panel.
 	AutoDetectExternalChanges bool `yaml:"autoDetectExternalChanges"`
-	// If not "none", lazygit will automatically fast-forward local branches to match their upstream after fetching. Applies to branches that are not the currently checked out branch, and only to those that are strictly behind their upstream (as opposed to diverged).
+	// If not "none", malasgit will automatically fast-forward local branches to match their upstream after fetching. Applies to branches that are not the currently checked out branch, and only to those that are strictly behind their upstream (as opposed to diverged).
 	// Possible values: 'none' | 'onlyMainBranches' | 'allBranches'
 	AutoForwardBranches string `yaml:"autoForwardBranches" jsonschema:"enum=none,enum=onlyMainBranches,enum=allBranches"`
 	// If true, pass the --all arg to git fetch
 	FetchAll bool `yaml:"fetchAll"`
-	// If true, lazygit will automatically stage files that used to have merge conflicts but no longer do; and it will also ask you if you want to continue a merge or rebase if you've resolved all conflicts. If false, it won't do either of these things.
+	// If true, malasgit will automatically stage files that used to have merge conflicts but no longer do; and it will also ask you if you want to continue a merge or rebase if you've resolved all conflicts. If false, it won't do either of these things.
 	AutoStageResolvedConflicts bool `yaml:"autoStageResolvedConflicts"`
 	// Command used when displaying the current branch git log in the main window
 	BranchLogCmd string `yaml:"branchLogCmd"`
@@ -337,11 +337,11 @@ type GitConfig struct {
 	OverrideGpg bool `yaml:"overrideGpg"`
 	// If true, do not allow force pushes
 	DisableForcePushing bool `yaml:"disableForcePushing"`
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-commit-message-prefix
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#predefined-commit-message-prefix
 	CommitPrefix []CommitPrefixConfig `yaml:"commitPrefix"`
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-commit-message-prefix
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#predefined-commit-message-prefix
 	CommitPrefixes map[string][]CommitPrefixConfig `yaml:"commitPrefixes"`
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-branch-name-prefix
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#predefined-branch-name-prefix
 	BranchPrefix string `yaml:"branchPrefix"`
 	// If true, parse emoji strings in commit messages e.g. render :rocket: as 🚀
 	// (This should really be under 'gui', not 'git')
@@ -415,7 +415,7 @@ type LogConfig struct {
 	// This determines whether the git graph is rendered in the commits panel
 	// One of 'always' | 'never' | 'when-maximised'
 	//
-	// Can be toggled from within lazygit with `Log menu -> Show git graph` (`<ctrl+l>` in the commits window by default).
+	// Can be toggled from within malasgit with `Log menu -> Show git graph` (`<ctrl+l>` in the commits window by default).
 	ShowGraph string `yaml:"showGraph" jsonschema:"enum=always,enum=never,enum=when-maximised"`
 	// displays the whole git graph by default in the commits view (equivalent to passing the `--all` argument to `git log`)
 	ShowWholeGraph bool `yaml:"showWholeGraph"`
@@ -699,7 +699,7 @@ type OSConfig struct {
 	// Same as EditAtLine, except that the command needs to wait until the window is closed.
 	EditAtLineAndWait string `yaml:"editAtLineAndWait,omitempty"`
 
-	// Whether lazygit suspends until an edit process returns
+	// Whether malasgit suspends until an edit process returns
 	// [dev] Pointer to bool so that we can distinguish unset (nil) from false.
 	// [dev] We're naming this `editInTerminal` for backwards compatibility
 	SuspendOnEdit *bool `yaml:"editInTerminal,omitempty"`
@@ -717,15 +717,15 @@ type OSConfig struct {
 	OpenLink string `yaml:"openLink,omitempty"`
 
 	// CopyToClipboardCmd is the command for copying to clipboard.
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-command-for-copying-to-and-pasting-from-clipboard
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-command-for-copying-to-and-pasting-from-clipboard
 	CopyToClipboardCmd string `yaml:"copyToClipboardCmd,omitempty"`
 
 	// ReadFromClipboardCmd is the command for reading the clipboard.
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-command-for-copying-to-and-pasting-from-clipboard
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-command-for-copying-to-and-pasting-from-clipboard
 	ReadFromClipboardCmd string `yaml:"readFromClipboardCmd,omitempty"`
 
 	// A shell startup file containing shell aliases or shell functions. This will be sourced before running any shell commands, so that shell functions are available in the `:` command prompt or even in custom commands.
-	// See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#using-aliases-or-functions-in-shell-commands
+	// See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#using-aliases-or-functions-in-shell-commands
 	ShellFunctionsFile string `yaml:"shellFunctionsFile"`
 }
 
@@ -734,7 +734,7 @@ type CustomCommandAfterHook struct {
 }
 
 type CustomCommand struct {
-	// The key to trigger the command. Use a single letter or one of the values from https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Custom_Keybindings.md. To bind several alternates to the same command, use a sequence (e.g. `[a, b]`).
+	// The key to trigger the command. Use a single letter or one of the values from https://github.com/itokun99/malasgit/blob/master/docs/keybindings/Custom_Keybindings.md. To bind several alternates to the same command, use a sequence (e.g. `[a, b]`).
 	Key Keybinding `yaml:"key"`
 	// Instead of defining a single custom command, create a menu of custom commands. Useful for grouping related commands together under a single keybinding, and for keeping them out of the global keybindings menu.
 	// When using this, all other fields except Key and Description are ignored and must be empty.
@@ -749,7 +749,7 @@ type CustomCommand struct {
 	LoadingText string `yaml:"loadingText" jsonschema:"example=Loading..."`
 	// Label for the custom command when displayed in the keybindings menu
 	Description string `yaml:"description"`
-	// Where the output of the command should go. 'none' discards it, 'terminal' suspends lazygit and runs the command in the terminal (useful for commands that require user input), 'log' streams it to the command log, 'logWithPty' is like 'log' but runs the command in a pseudo terminal (can be useful for commands that produce colored output when the output is a terminal), and 'popup' shows it in a popup.
+	// Where the output of the command should go. 'none' discards it, 'terminal' suspends malasgit and runs the command in the terminal (useful for commands that require user input), 'log' streams it to the command log, 'logWithPty' is like 'log' but runs the command in a pseudo terminal (can be useful for commands that produce colored output when the output is a terminal), and 'popup' shows it in a popup.
 	Output string `yaml:"output" jsonschema:"enum=none,enum=terminal,enum=log,enum=logWithPty,enum=popup"`
 	// The title to display in the popup panel if output is set to 'popup'. If left unset, the command will be used as the title.
 	OutputTitle string `yaml:"outputTitle"`

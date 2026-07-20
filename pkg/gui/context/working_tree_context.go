@@ -1,11 +1,11 @@
 package context
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/filetree"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation/icons"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/gui/filetree"
+	"github.com/itokun99/malasgit/pkg/gui/presentation"
+	"github.com/itokun99/malasgit/pkg/gui/presentation/icons"
+	"github.com/itokun99/malasgit/pkg/gui/types"
 	"github.com/samber/lo"
 )
 

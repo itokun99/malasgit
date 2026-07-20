@@ -1,10 +1,10 @@
-# Zsh completion for the `e2e` and `e2e-cli` recipes in lazygit's justfile.
+# Zsh completion for the `e2e` and `e2e-cli` recipes in malasgit's justfile.
 #
 # These recipes take integration-test names (e.g. submodule/reset). This makes
 # `just e2e <Tab>` complete them from pkg/integration/tests/. To enable it, add
 # the following to your ~/.zshrc, *after* the line that runs `compinit`:
 #
-#     source /path/to/lazygit/scripts/just_e2e_completion.zsh
+#     source /path/to/malasgit/scripts/just_e2e_completion.zsh
 #
 # It is a no-op when `just` isn't installed, and only kicks in inside a project
 # that has a justfile and a pkg/integration/tests/ directory, so it is harmless
@@ -17,7 +17,7 @@
 # delegate everything else (recipe names, flags, ...) to just's completer.
 source <(JUST_COMPLETE=zsh just)   # defines _clap_dynamic_completer_just
 
-_just_lazygit_e2e() {
+_just_malasgit_e2e() {
     if (( CURRENT > 2 )); then
         case ${words[2]} in
         e2e | e2e-cli)
@@ -53,4 +53,4 @@ _just_lazygit_e2e() {
     _clap_dynamic_completer_just "$@"
 }
 
-compdef _just_lazygit_e2e just   # bind last so this wins over the default
+compdef _just_malasgit_e2e just   # bind last so this wins over the default

@@ -3,10 +3,10 @@ package patch_exploring
 import (
 	"strings"
 
+	"github.com/itokun99/malasgit/pkg/commands/patch"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/lazygit/pkg/commands/patch"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/samber/lo"
 )
 

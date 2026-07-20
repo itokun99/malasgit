@@ -5,12 +5,12 @@ import (
 	"testing"
 
 	"github.com/gookit/color"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/patch"
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gui/filetree"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/commands/patch"
+	"github.com/itokun99/malasgit/pkg/common"
+	"github.com/itokun99/malasgit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/gui/filetree"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/xo/terminfo"
 )

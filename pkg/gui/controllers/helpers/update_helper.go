@@ -3,10 +3,10 @@ package helpers
 import (
 	"errors"
 
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/updates"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/updates"
+	"github.com/itokun99/malasgit/pkg/utils"
 )
 
 type UpdateHelper struct {

@@ -1,13 +1,13 @@
 package commit
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 // Originally we only suggested authors present in the current branch, but now
 // we include authors from other branches whose commits you've looked at in the
-// lazygit session.
+// malasgit session.
 
 var SetAuthor = NewIntegrationTest(NewIntegrationTestArgs{
 	Description:  "Set author on a commit",

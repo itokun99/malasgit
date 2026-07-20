@@ -3,9 +3,9 @@ package gui
 import (
 	"sync"
 
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/gui/context"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 )
 

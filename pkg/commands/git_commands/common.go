@@ -1,9 +1,9 @@
 package git_commands
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/common"
+	"github.com/itokun99/malasgit/pkg/config"
 )
 
 type GitCommon struct {

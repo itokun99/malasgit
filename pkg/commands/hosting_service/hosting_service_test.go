@@ -3,8 +3,8 @@ package hosting_service
 import (
 	"testing"
 
-	"github.com/jesseduffield/lazygit/pkg/fakes"
-	"github.com/jesseduffield/lazygit/pkg/i18n"
+	"github.com/itokun99/malasgit/pkg/fakes"
+	"github.com/itokun99/malasgit/pkg/i18n"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -587,13 +587,13 @@ func TestGetServiceInfo(t *testing.T) {
 	}{
 		{
 			name:      "github.com SSH",
-			remoteURL: "git@github.com:jesseduffield/lazygit.git",
+			remoteURL: "git@github.com:jesseduffield/malasgit.git",
 			expected: ServiceInfo{
 				Provider:   "github",
 				WebDomain:  "github.com",
 				Owner:      "jesseduffield",
-				Repository: "lazygit",
-				RepoName:   "jesseduffield/lazygit",
+				Repository: "malasgit",
+				RepoName:   "jesseduffield/malasgit",
 			},
 		},
 		{

@@ -5,11 +5,11 @@ import (
 	"os"
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/popup"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/popup"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/utils"
 )
 
 type IntegrationTest interface {
@@ -47,7 +47,7 @@ func (gui *Gui) handleTestMode() {
 		if os.Getenv(components.WAIT_FOR_DEBUGGER_ENV_VAR) == "" {
 			go utils.Safe(func() {
 				time.Sleep(time.Second * 40)
-				log.Fatal("40 seconds is up, lazygit recording took too long to complete")
+				log.Fatal("40 seconds is up, malasgit recording took too long to complete")
 			})
 		}
 	}

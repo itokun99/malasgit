@@ -7,11 +7,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/commands/git_commands"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 	"github.com/stefanhaller/git-todo-parser/todo"
 )
@@ -336,11 +336,11 @@ func (self *MergeAndRebaseHelper) PromptToContinueRebase() {
 
 			// By the time we get here, we might have unstaged changes again,
 			// e.g. if the user had to fix build errors after resolving the
-			// conflicts, but after lazygit opened the prompt already. Ask again
+			// conflicts, but after malasgit opened the prompt already. Ask again
 			// to auto-stage these.
 
 			// Need to refresh the files to be really sure if this is the case.
-			// We would otherwise be relying on lazygit's auto-refresh on focus,
+			// We would otherwise be relying on malasgit's auto-refresh on focus,
 			// but this is not supported by all terminals or on all platforms.
 			//
 			// The model.Files update is bounced onto the UI thread, so we have
@@ -379,7 +379,7 @@ func (self *MergeAndRebaseHelper) PromptToContinueRebase() {
 // DismissContinueRebasePromptIfShowing closes the "continue the rebase/merge?"
 // prompt if it's currently on screen. It's called when the operation is no
 // longer in the state the prompt is offering to act on (e.g. it was continued
-// or aborted outside lazygit, or new conflicts have appeared), so that the
+// or aborted outside malasgit, or new conflicts have appeared), so that the
 // user isn't left with a prompt whose "continue" would now be wrong or fail.
 // Must be called on the UI thread.
 func (self *MergeAndRebaseHelper) DismissContinueRebasePromptIfShowing() {

@@ -8,16 +8,16 @@ import (
 	"strings"
 	"sync"
 
-	appTypes "github.com/jesseduffield/lazygit/pkg/app/types"
-	"github.com/jesseduffield/lazygit/pkg/commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/direnv"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/env"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation/icons"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	appTypes "github.com/itokun99/malasgit/pkg/app/types"
+	"github.com/itokun99/malasgit/pkg/commands"
+	"github.com/itokun99/malasgit/pkg/commands/direnv"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/env"
+	"github.com/itokun99/malasgit/pkg/gui/context"
+	"github.com/itokun99/malasgit/pkg/gui/presentation/icons"
+	"github.com/itokun99/malasgit/pkg/gui/style"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 )
 
@@ -189,7 +189,7 @@ func (self *ReposHelper) switchRefusedBecauseBusy() bool {
 	return false
 }
 
-// switchTo switches lazygit to the repository (or worktree) at the given path.
+// switchTo switches malasgit to the repository (or worktree) at the given path.
 // It runs synchronously on the UI thread: the switch swaps gui.State (in
 // resetState) and reassigns gui.git and the process cwd, all of which the UI
 // thread also reads, so doing it here rather than on a worker avoids racing

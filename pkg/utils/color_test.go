@@ -3,7 +3,7 @@ package utils
 import (
 	"testing"
 
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"github.com/itokun99/malasgit/pkg/gui/style"
 )
 
 func TestDecolorise(t *testing.T) {

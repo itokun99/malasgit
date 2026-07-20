@@ -7,10 +7,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/ai"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/ai"
+	"github.com/itokun99/malasgit/pkg/commands/git_commands"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/types"
 	"github.com/samber/lo"
 )
 

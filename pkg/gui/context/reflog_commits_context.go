@@ -3,9 +3,9 @@ package context
 import (
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/gui/presentation"
+	"github.com/itokun99/malasgit/pkg/gui/types"
 )
 
 type ReflogCommitsContext struct {

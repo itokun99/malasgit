@@ -1,19 +1,19 @@
 package conflicts
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/integration/tests/shared"
 )
 
 var ResolveExternallyStartedMergeNoPrompt = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "When a merge started outside lazygit has its conflicts resolved, don't prompt to continue it",
+	Description:  "When a merge started outside malasgit has its conflicts resolved, don't prompt to continue it",
 	ExtraCmdArgs: []string{},
 	Skip:         false,
 	SetupConfig:  func(config *config.AppConfig) {},
 	SetupRepo: func(shell *Shell) {
-		// Start the merge by running git directly and never tell lazygit it was
-		// the one to start it, so from lazygit's point of view it was started
+		// Start the merge by running git directly and never tell malasgit it was
+		// the one to start it, so from malasgit's point of view it was started
 		// externally (e.g. by a coding agent in another terminal).
 		shared.CreateMergeConflictFile(shell)
 	},

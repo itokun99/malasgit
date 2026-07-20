@@ -10,7 +10,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gocui"
 )
 
 // GetProjectRoot returns the path to the root of the project. Only to be used
@@ -21,7 +21,7 @@ func GetProjectRoot() string {
 	if err != nil {
 		panic(err)
 	}
-	return strings.Split(dir, "lazygit")[0] + "lazygit"
+	return strings.Split(dir, "malasgit")[0] + "malasgit"
 }
 
 func SortRange(x int, y int) (int, int) {
@@ -102,7 +102,7 @@ func FilePath(skip int) string {
 // directory: "~" and "~/foo" become e.g. "/home/user" and "/home/user/foo". A
 // tilde anywhere other than the start, or one immediately followed by a
 // username ("~other/foo"), is left untouched, as is the path if the home
-// directory can't be determined. We expand it ourselves because lazygit runs
+// directory can't be determined. We expand it ourselves because malasgit runs
 // git directly, with no shell to do it for us.
 func ExpandTilde(path string) string {
 	if path != "~" && !strings.HasPrefix(path, "~/") &&

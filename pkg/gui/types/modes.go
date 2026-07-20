@@ -1,10 +1,10 @@
 package types
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/modes/cherrypicking"
-	"github.com/jesseduffield/lazygit/pkg/gui/modes/diffing"
-	"github.com/jesseduffield/lazygit/pkg/gui/modes/filtering"
-	"github.com/jesseduffield/lazygit/pkg/gui/modes/marked_base_commit"
+	"github.com/itokun99/malasgit/pkg/gui/modes/cherrypicking"
+	"github.com/itokun99/malasgit/pkg/gui/modes/diffing"
+	"github.com/itokun99/malasgit/pkg/gui/modes/filtering"
+	"github.com/itokun99/malasgit/pkg/gui/modes/marked_base_commit"
 )
 
 type Modes struct {

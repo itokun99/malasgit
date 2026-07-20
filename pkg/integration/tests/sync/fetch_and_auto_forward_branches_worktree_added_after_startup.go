@@ -1,12 +1,12 @@
 package sync
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 var FetchAndAutoForwardBranchesWorktreeAddedAfterStartup = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Auto-forward skips a main branch that was externally checked out in a linked worktree after lazygit started",
+	Description:  "Auto-forward skips a main branch that was externally checked out in a linked worktree after malasgit started",
 	ExtraCmdArgs: []string{},
 	Skip:         false,
 	SetupConfig: func(config *config.AppConfig) {

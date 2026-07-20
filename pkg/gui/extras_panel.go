@@ -3,10 +3,10 @@ package gui
 import (
 	"io"
 
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/context"
+	"github.com/itokun99/malasgit/pkg/gui/style"
+	"github.com/itokun99/malasgit/pkg/gui/types"
 )
 
 func (gui *Gui) handleCreateExtrasMenuPanel() error {

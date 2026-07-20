@@ -96,7 +96,7 @@ _This file is auto-generated. To update, make the changes in the pkg/i18n direct
 | `` c `` | Сохранить изменения | Commit staged changes. |
 | `` w `` | Закоммитить изменения без предварительного хука коммита |  |
 | `` C `` | Сохранить изменения с помощью редактора git |  |
-| `` <ctrl+f> `` | Find base commit for fixup | Find the commit that your current changes are building upon, for the sake of amending/fixing up the commit. This spares you from having to look through your branch's commits one-by-one to see which commit should be amended/fixed up. See docs: <https://github.com/jesseduffield/lazygit/tree/master/docs/Fixup_Commits.md> |
+| `` <ctrl+f> `` | Find base commit for fixup | Find the commit that your current changes are building upon, for the sake of amending/fixing up the commit. This spares you from having to look through your branch's commits one-by-one to see which commit should be amended/fixed up. See docs: <https://github.com/itokun99/malasgit/tree/master/docs/Fixup_Commits.md> |
 | `` / `` | Найти |  |
 
 ## Главная панель (Обычный)
@@ -302,8 +302,8 @@ _This file is auto-generated. To update, make the changes in the pkg/i18n direct
 | `` o `` | Открыть файл | Open file in default application. |
 | `` e `` | Edit | Open file in external editor. |
 | `` <ctrl+t> `` | Open external diff tool (git difftool) |  |
-| `` <space> `` | Переключить файлы включённые в патч | Toggle whether the file is included in the custom patch. See https://github.com/jesseduffield/lazygit#rebase-magic-custom-patches. |
-| `` a `` | Переключить все файлы, включённые в патч | Add/remove all commit's files to custom patch. See https://github.com/jesseduffield/lazygit#rebase-magic-custom-patches. |
+| `` <space> `` | Переключить файлы включённые в патч | Toggle whether the file is included in the custom patch. See https://github.com/itokun99/malasgit#rebase-magic-custom-patches. |
+| `` a `` | Переключить все файлы, включённые в патч | Add/remove all commit's files to custom patch. See https://github.com/itokun99/malasgit#rebase-magic-custom-patches. |
 | `` <enter> `` | Введите файл, чтобы добавить выбранные строки в патч (или свернуть каталог переключения) | If a file is selected, enter the file so that you can add/remove individual lines to the custom patch. If a directory is selected, toggle the directory. |
 | `` ` `` | Переключить вид дерева файлов | Toggle file view between flat and tree layout. Flat layout shows all file paths in a single list, tree layout groups files by directory.<br><br>The default can be changed in the config file with the key 'gui.showFileTree'. |
 | `` - `` | Collapse all files | Collapse all directories in the files tree |
@@ -381,7 +381,7 @@ _This file is auto-generated. To update, make the changes in the pkg/i18n direct
 | `` w `` | Закоммитить изменения без предварительного хука коммита |  |
 | `` A `` | Правка последнего коммита |  |
 | `` C `` | Сохранить изменения с помощью редактора git |  |
-| `` <ctrl+f> `` | Find base commit for fixup | Find the commit that your current changes are building upon, for the sake of amending/fixing up the commit. This spares you from having to look through your branch's commits one-by-one to see which commit should be amended/fixed up. See docs: <https://github.com/jesseduffield/lazygit/tree/master/docs/Fixup_Commits.md> |
+| `` <ctrl+f> `` | Find base commit for fixup | Find the commit that your current changes are building upon, for the sake of amending/fixing up the commit. This spares you from having to look through your branch's commits one-by-one to see which commit should be amended/fixed up. See docs: <https://github.com/itokun99/malasgit/tree/master/docs/Fixup_Commits.md> |
 | `` e `` | Edit | Open file in external editor. |
 | `` o `` | Открыть файл | Open file in default application. |
 | `` i `` | Игнорировать или исключить файл |  |

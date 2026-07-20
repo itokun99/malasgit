@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/config"
 	"github.com/stretchr/testify/assert"
 )
 

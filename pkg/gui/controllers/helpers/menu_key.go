@@ -1,6 +1,6 @@
 package helpers
 
-import "github.com/jesseduffield/lazygit/pkg/gocui"
+import "github.com/itokun99/malasgit/pkg/gocui"
 
 // menuKey is a shorthand for constructing a key value for a menu item from a single rune literal,
 // avoiding the noise of `[]gocui.Key{gocui.NewKeyRune('a')}` at every call site. There is an

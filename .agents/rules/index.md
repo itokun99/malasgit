@@ -8,7 +8,7 @@ load only what's relevant to the current task.
 
 ## Fork identity
 
-`malasgit` is a fork of [`jesseduffield/lazygit`](https://github.com/jesseduffield/lazygit).
+`malasgit` is a fork of [`jesseduffield/malasgit`](https://github.com/itokun99/malasgit).
 Remote is `git@github.com:itokun99/malasgit.git`. See
 [`malasgit-specific.md`](malasgit-specific.md) for fork-only rules.
 

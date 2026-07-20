@@ -10,7 +10,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -64,7 +64,7 @@ var (
 func loadFakeEditorBytes(t *testing.T) []byte {
 	t.Helper()
 	fakeEditorOnce.Do(func() {
-		buildDir, err := os.MkdirTemp("", "lazygit-fake-editor-build-*")
+		buildDir, err := os.MkdirTemp("", "malasgit-fake-editor-build-*")
 		if err != nil {
 			fakeEditorErr = err
 			return
@@ -240,7 +240,7 @@ func TestNewShell_QuotedExePath_FilenameWithoutSpaces_StillWorks(t *testing.T) {
 // TestNewShell_VarietyOfEditorTemplates exercises NewShell with a range of
 // realistic editor templates, all with the trigger conditions of the bug
 // (quoted exe at a spacey path + filename at a spacey path). Each subtest
-// asserts the editor receives the exact args lazygit intended.
+// asserts the editor receives the exact args malasgit intended.
 //
 // Args in `wantArgs` may use the literal "<file>" placeholder; it gets
 // substituted with the resolved target file path before comparison.

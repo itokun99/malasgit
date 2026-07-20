@@ -6,10 +6,10 @@ import (
 	"os/exec"
 	"path/filepath"
 
+	"github.com/itokun99/malasgit/pkg/commands/git_commands"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/utils"
 	lazycoreUtils "github.com/jesseduffield/lazycore/pkg/utils"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/samber/lo"
 )
 
@@ -149,7 +149,7 @@ func buildLazygit(testArgs RunTestArgs) error {
 }
 
 // Sets up the fixture for test and returns the working directory to invoke
-// lazygit in.
+// malasgit in.
 func createFixture(test *IntegrationTest, paths Paths, rootDir string) string {
 	env := NewTestEnvironment(rootDir)
 
@@ -264,11 +264,11 @@ func getLazygitCommand(
 }
 
 func tempLazygitPath() string {
-	return filepath.Join("/tmp", "lazygit", "test_lazygit")
+	return filepath.Join("/tmp", "malasgit", "test_malasgit")
 }
 
 func raceDetectorLogsPath() string {
-	return filepath.Join("/tmp", "lazygit", "race_log")
+	return filepath.Join("/tmp", "malasgit", "race_log")
 }
 
 func findOrCreateDir(path string) {

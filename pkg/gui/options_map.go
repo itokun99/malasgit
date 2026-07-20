@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/itokun99/malasgit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/context"
+	"github.com/itokun99/malasgit/pkg/gui/controllers/helpers"
+	"github.com/itokun99/malasgit/pkg/gui/style"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/theme"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/theme"
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/samber/lo"
 )
 

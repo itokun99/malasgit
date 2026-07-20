@@ -1,13 +1,13 @@
 package conflicts
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/integration/tests/shared"
 )
 
 var ResolveExternally = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Ensures that when merge conflicts are resolved outside of lazygit, lazygit prompts you to continue",
+	Description:  "Ensures that when merge conflicts are resolved outside of malasgit, malasgit prompts you to continue",
 	ExtraCmdArgs: []string{},
 	Skip:         false,
 	SetupConfig:  func(config *config.AppConfig) {},

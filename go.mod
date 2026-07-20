@@ -1,4 +1,4 @@
-module github.com/jesseduffield/lazygit
+module github.com/itokun99/malasgit
 
 go 1.25.0
 

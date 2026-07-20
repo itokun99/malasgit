@@ -1,9 +1,9 @@
 package common
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/i18n"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/i18n"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/spf13/afero"
 )
 

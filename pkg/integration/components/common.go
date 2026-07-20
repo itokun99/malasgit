@@ -38,10 +38,10 @@ func (self *Common) AbortMerge() {
 		Confirm()
 }
 
-// PretendMergeOrRebaseStartedInLazygit tells lazygit to treat the in-progress
+// PretendMergeOrRebaseStartedInLazygit tells malasgit to treat the in-progress
 // rebase/merge/etc. as one that it started, so that it will prompt to continue
 // once the conflicts are resolved. Use it when a test sets up an operation by
-// running git directly rather than through lazygit's UI.
+// running git directly rather than through malasgit's UI.
 func (self *Common) PretendMergeOrRebaseStartedInLazygit() {
 	self.t.gui.PretendMergeOrRebaseStartedInLazygit()
 }

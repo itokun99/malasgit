@@ -3,7 +3,7 @@ package git_commands
 import (
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
 )
 
 // OptionalLocksEnvVar is the name of the environment variable that tells git

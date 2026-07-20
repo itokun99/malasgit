@@ -1,8 +1,8 @@
 package types
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/style"
 )
 
 // Binding - a keybinding mapping a key and modifier to a handler. The keypress

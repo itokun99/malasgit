@@ -1,15 +1,15 @@
 package worktree
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 // Even though this involves submodules, it's a worktree test since
-// it's really exercising lazygit's ability to correctly do pathfinding
+// it's really exercising malasgit's ability to correctly do pathfinding
 // in a complex use case.
 var DoubleNestedLinkedSubmodule = NewIntegrationTest(NewIntegrationTestArgs{
-	Description:  "Open lazygit in a link to a repo's double nested submodules",
+	Description:  "Open malasgit in a link to a repo's double nested submodules",
 	ExtraCmdArgs: []string{},
 	Skip:         false,
 	SetupConfig: func(config *config.AppConfig) {

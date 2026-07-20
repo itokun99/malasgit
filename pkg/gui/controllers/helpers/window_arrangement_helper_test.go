@@ -7,9 +7,9 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/itokun99/malasgit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/gui/types"
 	"github.com/jesseduffield/lazycore/pkg/boxlayout"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
 	"github.com/samber/lo"
 )
 

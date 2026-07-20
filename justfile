@@ -1,7 +1,7 @@
 default:
     just --list
 
-# Build lazygit with optimizations disabled (to make debugging easier).
+# Build malasgit with optimizations disabled (to make debugging easier).
 build:
     go build -gcflags='all=-N -l'
 
@@ -9,14 +9,14 @@ install:
     go install
 
 run: build
-    ./lazygit
+    ./malasgit
 
 # Run `just debug` in one terminal tab and `just print-log` in another to view the program and its log output side by side
 debug: build
-    ./lazygit -debug
+    ./malasgit -debug
 
 print-log: build
-    ./lazygit --logs
+    ./malasgit --logs
 
 unit-test:
     go test ./... -short

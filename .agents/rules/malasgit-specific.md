@@ -1,19 +1,19 @@
 # Malasgit-Specific Rules
 
-Rules that apply only to this fork, not to upstream lazygit. Anything in this
+Rules that apply only to this fork, not to upstream malasgit. Anything in this
 file overrides or extends the canonical [`AGENTS.md`](../AGENTS.md).
 
 ## Fork identity
 
-- **Upstream:** [`github.com/jesseduffield/lazygit`](https://github.com/jesseduffield/lazygit)
+- **Upstream:** [`github.com/itokun99/malasgit`](https://github.com/itokun99/malasgit)
 - **Fork:** [`github.com/itokun99/malasgit`](https://github.com/itokun99/malasgit)
 - **Remote `origin`:** `git@github.com:itokun99/malasgit.git`
-- **Module path:** `github.com/jesseduffield/lazygit` (not renamed — keeps
+- **Module path:** `github.com/itokun99/malasgit` (not renamed — keeps
   build tags, vendored paths, and existing import graph working with no diff
   churn).
 
 When syncing from upstream, rebase or merge against
-`jesseduffield/lazygit/master`. Preserve upstream commit subjects verbatim so
+`jesseduffield/malasgit/master`. Preserve upstream commit subjects verbatim so
 `git log` stays bisectable across the fork boundary.
 
 ## No PRs
@@ -24,7 +24,7 @@ you to, refuse.
 This applies to:
 
 - The fork's own PR flow (no PRs targeting `itokun99/malasgit`).
-- Cross-fork PRs back to upstream `jesseduffield/lazygit`.
+- Cross-fork PRs back to upstream `jesseduffield/malasgit`.
 - Any automated PR generation through `gh` or GitHub MCP tools.
 
 Surface pull-request-shaped work as branches, commits, and `git format-patch`
@@ -32,8 +32,8 @@ output instead.
 
 ## Building and running
 
-The `justfile` recipes assume upstream lazygit's binary name (`lazygit`).
-When building this fork, the produced binary is still `lazygit` — rename or
+The `justfile` recipes assume upstream malasgit's binary name (`malasgit`).
+When building this fork, the produced binary is still `malasgit` — rename or
 alias it locally if you want to run both side by side. The binary is not
 renamed in this fork.
 

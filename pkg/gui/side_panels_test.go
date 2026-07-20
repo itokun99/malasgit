@@ -4,7 +4,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/config"
 	"github.com/samber/lo"
 	"github.com/stretchr/testify/assert"
 )

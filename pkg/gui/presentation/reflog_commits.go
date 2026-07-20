@@ -3,11 +3,11 @@ package presentation
 import (
 	"time"
 
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/gui/style"
+	"github.com/itokun99/malasgit/pkg/theme"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/theme"
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/kyokomi/emoji/v2"
 	"github.com/samber/lo"
 )

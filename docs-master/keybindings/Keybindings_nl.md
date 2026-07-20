@@ -142,8 +142,8 @@ _This file is auto-generated. To update, make the changes in the pkg/i18n direct
 | `` o `` | Open bestand | Open bestand in standaardapplicatie. |
 | `` e `` | Edit | Open bestand in externe editor. |
 | `` <ctrl+t> `` | Open externe diff applicatie (git difftool) |  |
-| `` <space> `` | Toggle bestand inbegrepen in patch | Toggle whether the file is included in the custom patch. See https://github.com/jesseduffield/lazygit#rebase-magic-custom-patches. |
-| `` a `` | Toggle all files | Add/remove all commit's files to custom patch. See https://github.com/jesseduffield/lazygit#rebase-magic-custom-patches. |
+| `` <space> `` | Toggle bestand inbegrepen in patch | Toggle whether the file is included in the custom patch. See https://github.com/itokun99/malasgit#rebase-magic-custom-patches. |
+| `` a `` | Toggle all files | Add/remove all commit's files to custom patch. See https://github.com/itokun99/malasgit#rebase-magic-custom-patches. |
 | `` <enter> `` | Enter bestand om geselecteerde regels toe te voegen aan de patch | If a file is selected, enter the file so that you can add/remove individual lines to the custom patch. If a directory is selected, toggle the directory. |
 | `` ` `` | Toggle bestandsboom weergave | Toggle file view between flat and tree layout. Flat layout shows all file paths in a single list, tree layout groups files by directory.<br><br>The default can be changed in the config file with the key 'gui.showFileTree'. |
 | `` - `` | Collapse all files | Collapse all directories in the files tree |

@@ -112,8 +112,8 @@ _This file is auto-generated. To update, make the changes in the pkg/i18n direct
 | `` o `` | ファイルを開く | デフォルトのアプリケーションでファイルを開きます。 |
 | `` e `` | 編集 | 外部エディタでファイルを開きます。 |
 | `` <ctrl+t> `` | 外部差分ツールを開く（git difftool） |  |
-| `` <space> `` | パッチに含めるファイルを切り替え | ファイルがカスタムパッチに含まれるかどうかを切り替えます。https://github.com/jesseduffield/lazygit#rebase-magic-custom-patchesを参照してください。 |
-| `` a `` | すべてのファイルを切り替え | コミットのすべてのファイルをカスタムパッチに追加/削除します。https://github.com/jesseduffield/lazygit#rebase-magic-custom-patchesを参照してください。 |
+| `` <space> `` | パッチに含めるファイルを切り替え | ファイルがカスタムパッチに含まれるかどうかを切り替えます。https://github.com/itokun99/malasgit#rebase-magic-custom-patchesを参照してください。 |
+| `` a `` | すべてのファイルを切り替え | コミットのすべてのファイルをカスタムパッチに追加/削除します。https://github.com/itokun99/malasgit#rebase-magic-custom-patchesを参照してください。 |
 | `` <enter> `` | ファイルに入る / ディレクトリの折りたたみを切り替える | ファイルが選択されている場合、そのファイルに入ってカスタムパッチに個々の行を追加/削除できます。ディレクトリが選択されている場合、ディレクトリを切り替えます。 |
 | `` ` `` | ファイルツリービューを切り替え | ファイル表示をフラット表示とツリー表示で切り替えます。フラット表示はすべてのファイルパスを一覧で表示し、ツリー表示はディレクトリごとにファイルをグループ化します。<br><br>デフォルトは設定ファイル内の 'gui.showFileTree' キーで変更できます。 |
 | `` - `` | すべてのファイルを折りたたむ | ファイルツリー内のすべてのディレクトリを折りたたみます |

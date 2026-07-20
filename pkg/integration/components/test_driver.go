@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/config"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
+	"github.com/itokun99/malasgit/pkg/config"
+	integrationTypes "github.com/itokun99/malasgit/pkg/integration/types"
 )
 
 type TestDriver struct {
@@ -55,7 +55,7 @@ func (self *TestDriver) GlobalPress(key config.Keybinding) {
 	self.press(key[0])
 }
 
-// FocusIn simulates the terminal window regaining focus, which causes lazygit
+// FocusIn simulates the terminal window regaining focus, which causes malasgit
 // to reload any config files that changed while it was in the background.
 func (self *TestDriver) FocusIn() {
 	self.SetCaption("Focusing window")
@@ -73,7 +73,7 @@ func (self *TestDriver) Common() *Common {
 	return &Common{t: self}
 }
 
-// for when you want to allow lazygit to process something before continuing
+// for when you want to allow malasgit to process something before continuing
 func (self *TestDriver) Wait(milliseconds int) {
 	time.Sleep(time.Duration(milliseconds) * time.Millisecond)
 }
@@ -99,7 +99,7 @@ func (self *TestDriver) Shell() *Shell {
 	return self.shell
 }
 
-// for making assertions on lazygit views
+// for making assertions on malasgit views
 func (self *TestDriver) Views() *Views {
 	return &Views{t: self}
 }

@@ -3,9 +3,9 @@ package patch
 import (
 	"strings"
 
+	"github.com/itokun99/malasgit/pkg/gui/style"
+	"github.com/itokun99/malasgit/pkg/theme"
 	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/theme"
 	"github.com/samber/lo"
 )
 

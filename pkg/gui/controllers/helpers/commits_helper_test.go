@@ -5,7 +5,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/jesseduffield/lazygit/pkg/ai"
+	"github.com/itokun99/malasgit/pkg/ai"
 	"github.com/stretchr/testify/assert"
 )
 

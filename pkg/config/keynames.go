@@ -6,7 +6,7 @@ import (
 	"unicode/utf8"
 
 	"github.com/gdamore/tcell/v3"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gocui"
 	"github.com/samber/lo"
 )
 

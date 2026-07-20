@@ -1,9 +1,9 @@
 package ui
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
-	"github.com/jesseduffield/lazygit/pkg/integration/tests/shared"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/integration/tests/shared"
 )
 
 var ModeSpecificKeybindingSuggestions = NewIntegrationTest(NewIntegrationTestArgs{

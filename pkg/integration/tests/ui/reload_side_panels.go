@@ -1,8 +1,8 @@
 package ui
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 var ReloadSidePanels = NewIntegrationTest(NewIntegrationTestArgs{
@@ -13,7 +13,7 @@ var ReloadSidePanels = NewIntegrationTest(NewIntegrationTestArgs{
 	SetupRepo: func(shell *Shell) {
 		shell.CreateNCommits(2)
 		// Start with worktrees promoted to its own panel.
-		shell.CreateFile(".git/lazygit.yml", `
+		shell.CreateFile(".git/malasgit.yml", `
 gui:
   sidePanels:
     - [status]
@@ -31,7 +31,7 @@ gui:
 
 		// Demote worktrees back into the files panel, then refocus the window to
 		// trigger a live reload of the changed config.
-		t.Shell().UpdateFile(".git/lazygit.yml", `
+		t.Shell().UpdateFile(".git/malasgit.yml", `
 gui:
   sidePanels:
     - [status]

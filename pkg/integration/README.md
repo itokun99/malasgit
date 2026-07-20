@@ -1,6 +1,6 @@
 # Integration Tests
 
-The pkg/integration package is for integration testing: that is, actually running a real lazygit session and having a robot pretend to be a human user and then making assertions that everything works as expected.
+The pkg/integration package is for integration testing: that is, actually running a real malasgit session and having a robot pretend to be a human user and then making assertions that everything works as expected.
 
 TL;DR: integration tests live in pkg/integration/tests, and we run them through the [`just`](https://github.com/casey/just) recipes in the repo's `justfile`. Run the whole suite headlessly with:
 
@@ -22,9 +22,9 @@ Each test has two important steps: the setup step and the run step.
 
 ### Setup step
 
-In the setup step, we prepare a repo with shell commands, for example, creating a merge conflict that will need to be resolved upon opening lazygit. This is all done via the `shell` argument.
+In the setup step, we prepare a repo with shell commands, for example, creating a merge conflict that will need to be resolved upon opening malasgit. This is all done via the `shell` argument.
 
-When the test runs, lazygit will open in the same working directory that the shell ends up in (so if you want to start lazygit somewhere other than the default location, you can use `shell.Chdir()` at the end of the setup step to set that working directory.
+When the test runs, malasgit will open in the same working directory that the shell ends up in (so if you want to start malasgit somewhere other than the default location, you can use `shell.Chdir()` at the end of the setup step to set that working directory.
 
 ### Run step
 
@@ -42,7 +42,7 @@ We drive the integration tests through the [`just`](https://github.com/casey/jus
 
 - `just e2e` — run the whole suite headlessly, with no visible UI. This is what CI does, and the fastest way to run everything.
 - `just e2e <name>` — run a single test headlessly, e.g. `just e2e commit/new_branch`; the fastest way to run one test. You can pass several names at once, or a full file path like `pkg/integration/tests/commit/new_branch.go`.
-- `just e2e-cli [--slow|--sandbox|--debug] <name>` — run a single test in a *visible* lazygit UI, so you can watch it (see slow mode below, and sandbox mode and debugging in the following sections).
+- `just e2e-cli [--slow|--sandbox|--debug] <name>` — run a single test in a *visible* malasgit UI, so you can watch it (see slow mode below, and sandbox mode and debugging in the following sections).
 - `just e2e-tui` — open a terminal UI for browsing and running tests; the easiest way to find and run a test without having to type its name.
 
 The name of a test is based on its path, so the name of the test at `pkg/integration/tests/commit/new_branch.go` is `commit/new_branch`.
@@ -69,11 +69,11 @@ Debugging an integration test is possible in two ways:
 1. Pass `--debug` to `just e2e-cli`, e.g. `just e2e-cli --debug tag/reset`.
 2. Select a test in `just e2e-tui` and hit "d" to debug it.
 
-In both cases the test runner will print to the console that it is waiting for a debugger to attach, so now you need to tell your debugger to attach to a running process with the name "test_lazygit". If you are using Visual Studio Code, an easy way to do that is to use the "Attach to integration test runner" debug configuration. The test runner will resume automatically when it detects that a debugger was attached. Don't forget to set a breakpoint in the code that you want to step through, otherwise the test will just finish (i.e. it doesn't stop in the debugger automatically).
+In both cases the test runner will print to the console that it is waiting for a debugger to attach, so now you need to tell your debugger to attach to a running process with the name "test_malasgit". If you are using Visual Studio Code, an easy way to do that is to use the "Attach to integration test runner" debug configuration. The test runner will resume automatically when it detects that a debugger was attached. Don't forget to set a breakpoint in the code that you want to step through, otherwise the test will just finish (i.e. it doesn't stop in the debugger automatically).
 
 ### Sandbox mode
 
-Say you want to do a manual test of how lazygit handles merge-conflicts, but you can't be bothered actually finding a way to create merge conflicts in a repo. To make your life easier, you can simply run a merge-conflicts test in sandbox mode, meaning the setup step is run for you, and then instead of the test driving the lazygit session, you're allowed to drive it yourself.
+Say you want to do a manual test of how malasgit handles merge-conflicts, but you can't be bothered actually finding a way to create merge conflicts in a repo. To make your life easier, you can simply run a merge-conflicts test in sandbox mode, meaning the setup step is run for you, and then instead of the test driving the malasgit session, you're allowed to drive it yourself.
 
 To run a test in sandbox mode, press 's' on a test in `just e2e-tui`, or pass `--sandbox` to `just e2e-cli`, e.g. `just e2e-cli --sandbox conflicts/resolve_multiple_files`.
 
@@ -81,7 +81,7 @@ To run a test in sandbox mode, press 's' on a test in `just e2e-tui`, or pass `-
 
 ### Handle most setup in the `shell` part of the test
 
-Try to do as much setup work as possible in your setup step. For example, if all you're testing is that the user is able to resolve merge conflicts, create the merge conflicts in the setup step. On the other hand, if you're testing to see that lazygit can warn the user about merge conflicts after an attempted merge, it's fine to wait until the run step to actually create the conflicts. If the run step is focused on the thing you're trying to test, the test will run faster and its intent will be clearer.
+Try to do as much setup work as possible in your setup step. For example, if all you're testing is that the user is able to resolve merge conflicts, create the merge conflicts in the setup step. On the other hand, if you're testing to see that malasgit can warn the user about merge conflicts after an attempted merge, it's fine to wait until the run step to actually create the conflicts. If the run step is focused on the thing you're trying to test, the test will run faster and its intent will be clearer.
 
 ### Create helper functions for (very) frequently used test logic
 

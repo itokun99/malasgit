@@ -37,9 +37,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check for correct repository
-        if: ${{ github.event_name != 'workflow_dispatch' && github.repository != 'stefanhaller/lazygit' }}
+        if: ${{ github.event_name != 'workflow_dispatch' && github.repository != 'stefanhaller/malasgit' }}
         run: |
-          echo "Should only run in the stefanhaller/lazygit repository"
+          echo "Should only run in the stefanhaller/malasgit repository"
           exit 1
 
       - name: Check for first Saturday of the month
@@ -53,7 +53,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v7
         with:
-          repository: jesseduffield/lazygit
+          repository: jesseduffield/malasgit
           ref: ${{ inputs.branch }}
           token: ${{ secrets.LAZYGIT_RELEASE_PAT }}
           fetch-depth: 0

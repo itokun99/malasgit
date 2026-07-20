@@ -4,11 +4,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
-// Verifies that when the user switches repos from inside lazygit, env vars
+// Verifies that when the user switches repos from inside malasgit, env vars
 // that direnv would load for the target repo are applied to subprocesses
 // (custom commands, git hooks, etc.). The test puts a fake `direnv` binary
 // on PATH so it works regardless of whether the host has real direnv

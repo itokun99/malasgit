@@ -1,8 +1,8 @@
 package commands
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/commands/git_commands"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
 	"github.com/sirupsen/logrus"
 )
 

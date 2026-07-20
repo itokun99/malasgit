@@ -7,11 +7,11 @@ import (
 	"time"
 
 	"github.com/gdamore/tcell/v3"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	integrationTypes "github.com/itokun99/malasgit/pkg/integration/types"
 )
 
 // this gives our integration test a way of interacting with the gui for sending keypresses
@@ -55,7 +55,7 @@ func (self *GuiDriver) Click(x, y int) {
 	self.waitTillIdle()
 }
 
-// FocusIn simulates the terminal window regaining focus, which is how lazygit
+// FocusIn simulates the terminal window regaining focus, which is how malasgit
 // learns to reload changed config files. Tests use it to exercise the live
 // config-reload path.
 func (self *GuiDriver) FocusIn() {
@@ -76,7 +76,7 @@ func (self *GuiDriver) PretendMergeOrRebaseStartedInLazygit() {
 	self.waitTillIdle()
 }
 
-// wait until lazygit is idle (i.e. all processing is done) before continuing
+// wait until malasgit is idle (i.e. all processing is done) before continuing
 func (self *GuiDriver) waitTillIdle() {
 	self.gui.g.WaitUntilIdle()
 }
@@ -134,7 +134,7 @@ func (self *GuiDriver) Fail(message string) {
 	panic("Test failed")
 }
 
-// logs to the normal place that you log to i.e. viewable with `lazygit --logs`
+// logs to the normal place that you log to i.e. viewable with `malasgit --logs`
 func (self *GuiDriver) Log(message string) {
 	self.gui.c.Log.Warn(message)
 }

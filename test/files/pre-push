@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# test pre-push hook for testing the lazygit credentials view
+# test pre-push hook for testing the malasgit credentials view
 #
 # to enable, use:
 # chmod +x .git/hooks/pre-push
 #
 # this will hang if you're using git from the command line, so only enable this
-# when you are testing the credentials view in lazygit
+# when you are testing the credentials view in malasgit
 
 exec < /dev/tty
 

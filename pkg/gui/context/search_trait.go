@@ -3,7 +3,7 @@ package context
 import (
 	"fmt"
 
-	"github.com/jesseduffield/lazygit/pkg/theme"
+	"github.com/itokun99/malasgit/pkg/theme"
 )
 
 type SearchTrait struct {

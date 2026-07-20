@@ -6,11 +6,11 @@ import (
 	"testing"
 
 	"github.com/go-errors/errors"
-	"github.com/jesseduffield/lazygit/pkg/app/daemon"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_config"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/app/daemon"
+	"github.com/itokun99/malasgit/pkg/commands/git_config"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 	"github.com/stretchr/testify/assert"
 )

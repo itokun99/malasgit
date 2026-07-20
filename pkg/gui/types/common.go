@@ -1,15 +1,15 @@
 package types
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/tasks"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/commands"
+	"github.com/itokun99/malasgit/pkg/commands/git_commands"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/common"
+	"github.com/itokun99/malasgit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/tasks"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/sasha-s/go-deadlock"
 )
 
@@ -85,7 +85,7 @@ type IGuiCommon interface {
 	// All controller handlers are executed on the UI thread.
 	OnUIThread(f func() error)
 	// Like OnUIThread, but for work triggered by a background routine, so it
-	// doesn't count towards lazygit being busy (see the *Background methods on
+	// doesn't count towards malasgit being busy (see the *Background methods on
 	// gocui.Gui and repo-switch safety).
 	OnUIThreadBackground(f func() error)
 	// Like OnUIThread, but signals that the callback only modifies view
@@ -95,10 +95,10 @@ type IGuiCommon interface {
 	// Like OnUIThreadContentOnly, but for background work (see OnUIThreadBackground).
 	OnUIThreadContentOnlyBackground(f func() error)
 	// Runs a function in a goroutine. Use this whenever you want to run a goroutine and keep track of the fact
-	// that lazygit is still busy. See docs/dev/Busy.md
+	// that malasgit is still busy. See docs/dev/Busy.md
 	OnWorker(f func(gocui.Task) error)
 	// Like OnWorker, but for a background routine (or work it triggers), so it
-	// doesn't count towards lazygit being busy (see OnUIThreadBackground).
+	// doesn't count towards malasgit being busy (see OnUIThreadBackground).
 	OnWorkerBackground(f func(gocui.Task) error)
 	// Function to call at the end of our 'layout' function which renders views
 	// For example, you may want a view's line to be focused only after that view is
@@ -381,7 +381,7 @@ type IStateAccessor interface {
 	GetRepoPathStack() *utils.StringStack
 	GetRepoState() IRepoStateAccessor
 	GetPagerConfig() *config.PagerConfig
-	// tells us whether we're currently updating lazygit
+	// tells us whether we're currently updating malasgit
 	GetUpdating() bool
 	SetUpdating(bool)
 	GetShowExtrasWindow() bool

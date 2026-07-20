@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/config"
 )
 
 // NOTE: Visit next links for inspiration:

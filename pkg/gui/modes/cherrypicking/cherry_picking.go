@@ -1,8 +1,8 @@
 package cherrypicking
 
 import (
+	"github.com/itokun99/malasgit/pkg/commands/models"
 	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
 	"github.com/samber/lo"
 )
 

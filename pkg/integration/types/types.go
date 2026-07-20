@@ -1,10 +1,10 @@
 package types
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/types"
 )
 
 // these interfaces are used by the gui package so that it knows what it needs
@@ -20,7 +20,7 @@ type IntegrationTest interface {
 	IsDemo() bool
 }
 
-// this is the interface through which our integration tests interact with the lazygit gui
+// this is the interface through which our integration tests interact with the malasgit gui
 type GuiDriver interface {
 	PressKey(string)
 	Click(int, int)
@@ -33,7 +33,7 @@ type GuiDriver interface {
 	Fail(message string)
 	// These two log methods are for the sake of debugging while testing. There's no need to actually
 	// commit any logging.
-	// logs to the normal place that you log to i.e. viewable with `lazygit --logs`
+	// logs to the normal place that you log to i.e. viewable with `malasgit --logs`
 	Log(message string)
 	// logs in the actual UI (in the commands panel)
 	LogUI(message string)
@@ -53,7 +53,7 @@ type GuiDriver interface {
 	CheckAllToastsAcknowledged()
 	Headless() bool
 	// Record that the in-progress rebase/merge/etc. is to be treated as one
-	// that was started from within lazygit. Lets a test that starts an
+	// that was started from within malasgit. Lets a test that starts an
 	// operation by running git directly (rather than through the UI) still get
 	// the "continue?" prompt when its conflicts are resolved.
 	PretendMergeOrRebaseStartedInLazygit()

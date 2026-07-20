@@ -7,7 +7,7 @@ echo "Running integration tests with $(git --version)"
 # config file to the actual global location. Move an existing file out of the
 # way so that we can restore it at the end.
 if test -f ~/.gitconfig; then
-  mv ~/.gitconfig ~/.gitconfig.lazygit.bak
+  mv ~/.gitconfig ~/.gitconfig.malasgit.bak
 fi
 
 cp test/global_git_config ~/.gitconfig
@@ -19,7 +19,7 @@ if [ -n "$LAZYGIT_GOCOVERDIR" ]; then
   # hacky. To capture the coverage data for the test runner we pass the test.gocoverdir positional
   # arg, but if we do that then the GOCOVERDIR env var (which you typically pass to the test binary) will be overwritten by the test runner. So we're passing LAZYGIT_COCOVERDIR instead
   # and then internally passing that to the test binary as GOCOVERDIR.
-  go test -cover -coverpkg=github.com/jesseduffield/lazygit/pkg/... pkg/integration/clients/*.go -args -test.gocoverdir="/tmp/code_coverage"
+  go test -cover -coverpkg=github.com/itokun99/malasgit/pkg/... pkg/integration/clients/*.go -args -test.gocoverdir="/tmp/code_coverage"
   EXITCODE=$?
 
   # We're merging the coverage data for the sake of having fewer artefacts to upload.
@@ -33,8 +33,8 @@ else
   EXITCODE=$?
 fi
 
-if test -f ~/.gitconfig.lazygit.bak; then
-  mv ~/.gitconfig.lazygit.bak ~/.gitconfig
+if test -f ~/.gitconfig.malasgit.bak; then
+  mv ~/.gitconfig.malasgit.bak ~/.gitconfig
 fi
 
 exit $EXITCODE

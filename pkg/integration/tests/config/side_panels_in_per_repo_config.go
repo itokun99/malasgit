@@ -3,8 +3,8 @@ package config
 import (
 	"path/filepath"
 
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 var SidePanelsInPerRepoConfig = NewIntegrationTest(NewIntegrationTestArgs{
@@ -18,7 +18,7 @@ var SidePanelsInPerRepoConfig = NewIntegrationTest(NewIntegrationTestArgs{
 	SetupRepo: func(shell *Shell) {
 		shell.CloneNonBare("other")
 		// The other repo swaps the branches and commits panels.
-		shell.CreateFile("../other/.git/lazygit.yml", `
+		shell.CreateFile("../other/.git/malasgit.yml", `
 gui:
   sidePanels:
     - [status]

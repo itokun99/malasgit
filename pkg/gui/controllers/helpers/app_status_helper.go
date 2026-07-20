@@ -3,10 +3,10 @@ package helpers
 import (
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/status"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/status"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/utils"
 )
 
 type AppStatusHelper struct {
@@ -70,7 +70,7 @@ func (self *AppStatusHelper) WithWaitingStatus(message string, f func(gocui.Task
 // work dispatched to a worker. task is used to hide the status while the task
 // is paused; it may be nil for callers whose f ignores its task.
 func (self *AppStatusHelper) WithWaitingStatusImpl(message string, f func(gocui.Task) error, task gocui.Task) error {
-	// A waiting status means lazygit is driving a git operation itself (often
+	// A waiting status means malasgit is driving a git operation itself (often
 	// one that internally runs a rebase and continues it). Pause the background
 	// routines for its duration so they don't refresh from an intermediate
 	// state and reveal, say, the half-finished history of a reword.
@@ -128,7 +128,7 @@ func (self *AppStatusHelper) GetStatusString() string {
 //
 // The loop always runs as a background task, regardless of what kind of
 // operation owns a status: rendering runs no git commands, so it must never
-// count towards lazygit being busy — otherwise it would block repo switching
+// count towards malasgit being busy — otherwise it would block repo switching
 // for as long as anything is showing (e.g. for the whole duration of a hung
 // background fetch, or of a toast fading). A foreground operation's busy-ness
 // is carried by its own worker task, not by the renderer.

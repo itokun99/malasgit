@@ -3,7 +3,7 @@ package components
 import (
 	"fmt"
 
-	"github.com/jesseduffield/lazygit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gocui"
 )
 
 type Views struct {

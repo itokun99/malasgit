@@ -25,7 +25,7 @@ If applicable, add screenshots to help explain your problem.
 
 ### Version info:
 
-* _Run `lazygit --version` and paste the result here_
+* _Run `malasgit --version` and paste the result here_
 
 ### Terminal info:
 What terminal are you using, and which version? For some types of bugs this information can be relevant.
@@ -34,8 +34,8 @@ What terminal are you using, and which version? For some types of bugs this info
 Add any other context about the problem here.
 
 > [!NOTE]
-> Please try updating to the latest version or [manually building](https://github.com/jesseduffield/lazygit/#manual) the latest `master` to see if the issue still occurs.
+> Please try updating to the latest version or [manually building](https://github.com/itokun99/malasgit/#manual) the latest `master` to see if the issue still occurs.
 
 <!--
-If you want to try and debug this issue yourself, you can run `lazygit --debug` in one terminal panel and `lazygit --logs` in another to view the logs.
+If you want to try and debug this issue yourself, you can run `malasgit --debug` in one terminal panel and `malasgit --logs` in another to view the logs.
 -->

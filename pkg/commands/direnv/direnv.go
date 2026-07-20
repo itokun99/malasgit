@@ -7,7 +7,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
 )
 
 // LoadResult bundles everything callers might want to know about a direnv

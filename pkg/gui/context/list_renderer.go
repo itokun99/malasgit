@@ -3,8 +3,8 @@ package context
 import (
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 	"golang.org/x/exp/slices"
 )

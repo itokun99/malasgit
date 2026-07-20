@@ -3,9 +3,9 @@ package helpers
 import (
 	"fmt"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/patch"
-	"github.com/jesseduffield/lazygit/pkg/gui/patch_exploring"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/commands/patch"
+	"github.com/itokun99/malasgit/pkg/gui/patch_exploring"
+	"github.com/itokun99/malasgit/pkg/gui/types"
 )
 
 type PatchBuildingHelper struct {

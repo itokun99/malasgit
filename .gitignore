@@ -14,8 +14,8 @@ coverage.txt
 .idea/
 
 # Binaries
-lazygit
-lazygit.exe
+malasgit
+malasgit.exe
 
 test/git_server/data
 

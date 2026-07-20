@@ -901,9 +901,9 @@ func (g *Gui) onUIThreadAndWait(f func() error, background bool) error {
 
 // Calls a function in a goroutine. Handles panics gracefully and tracks
 // number of background tasks.
-// Always use this when you want to spawn a goroutine and you want lazygit to
+// Always use this when you want to spawn a goroutine and you want malasgit to
 // consider itself 'busy` as it runs the code. Don't use for long-running
-// background goroutines where you wouldn't want lazygit to be considered busy
+// background goroutines where you wouldn't want malasgit to be considered busy
 // (i.e. when you wouldn't want a loader to be shown to the user)
 func (g *Gui) OnWorker(f func(Task) error) {
 	g.onWorker(f, false)

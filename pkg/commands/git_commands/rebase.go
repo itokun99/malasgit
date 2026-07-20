@@ -6,10 +6,10 @@ import (
 	"strings"
 
 	"github.com/go-errors/errors"
-	"github.com/jesseduffield/lazygit/pkg/app/daemon"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/app/daemon"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 	"github.com/stefanhaller/git-todo-parser/todo"
 )
@@ -210,8 +210,8 @@ type PrepareInteractiveRebaseCommandOpts struct {
 }
 
 // PrepareInteractiveRebaseCommand returns the cmd for an interactive rebase
-// we tell git to run lazygit to edit the todo list, and we pass the client
-// lazygit instructions what to do with the todo file
+// we tell git to run malasgit to edit the todo list, and we pass the client
+// malasgit instructions what to do with the todo file
 func (self *RebaseCommands) PrepareInteractiveRebaseCommand(opts PrepareInteractiveRebaseCommandOpts) *oscommands.CmdObj {
 	ex := oscommands.GetLazygitPath()
 

@@ -8,8 +8,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/constants"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/constants"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 )
 

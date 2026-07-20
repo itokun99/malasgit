@@ -3,7 +3,7 @@ package git_commands
 import (
 	"fmt"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
 )
 
 type DiffCommands struct {

@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/config"
 )
 
 const aiAPIKeyEnvVar = "AI_API_KEY"

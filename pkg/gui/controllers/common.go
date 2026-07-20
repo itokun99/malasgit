@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
+	"github.com/itokun99/malasgit/pkg/gui/controllers/helpers"
 )
 
 type ControllerCommon struct {

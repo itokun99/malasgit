@@ -10,9 +10,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/sasha-s/go-deadlock"
 	"github.com/sirupsen/logrus"
 )
@@ -75,7 +75,7 @@ type ViewBufferManager struct {
 
 	// see docs/dev/Busy.md
 	// A gocui task is not the same thing as the tasks defined in this file.
-	// A gocui task simply represents the fact that lazygit is busy doing something,
+	// A gocui task simply represents the fact that malasgit is busy doing something,
 	// whereas the tasks in this file are about rendering content to a view.
 	newGocuiTask func() gocui.Task
 

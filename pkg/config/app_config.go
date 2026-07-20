@@ -12,19 +12,19 @@ import (
 	"time"
 
 	"github.com/adrg/xdg"
+	"github.com/itokun99/malasgit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/utils/yaml_utils"
 	"github.com/jesseduffield/generics/orderedset"
-	"github.com/jesseduffield/lazygit/pkg/utils"
-	"github.com/jesseduffield/lazygit/pkg/utils/yaml_utils"
 	"github.com/samber/lo"
 	"gopkg.in/yaml.v3"
 )
 
-// AppConfig contains the base configuration fields required for lazygit.
+// AppConfig contains the base configuration fields required for malasgit.
 type AppConfig struct {
 	debug                 bool   `long:"debug" env:"DEBUG" default:"false"`
 	version               string `long:"version" env:"VERSION" default:"unversioned"`
 	buildDate             string `long:"build-date" env:"BUILD_DATE"`
-	name                  string `long:"name" env:"NAME" default:"lazygit"`
+	name                  string `long:"name" env:"NAME" default:"malasgit"`
 	buildSource           string `long:"build-source" env:"BUILD_SOURCE" default:""`
 	userConfig            *UserConfig
 	globalUserConfigFiles []*ConfigFile
@@ -139,7 +139,7 @@ func findOrCreateConfigDir() (string, error) {
 // KeybindingPlatform returns the platform whose default keybindings should be
 // used. Normally this is the OS we're running on, but it can be overridden with
 // the LAZYGIT_KEYBINDING_PLATFORM environment variable; this is useful e.g. when
-// running lazygit in a Linux container that you access over ssh from a Mac, and
+// running malasgit in a Linux container that you access over ssh from a Mac, and
 // you'd rather use the Mac keybindings. An unrecognized value falls back to the
 // real OS, which gives meaningful bindings, rather than to the (arbitrary)
 // non-darwin defaults.
@@ -628,19 +628,19 @@ func findConfigFile(filename string) (exists bool, path string) {
 		return true, filepath.Join(envConfigDir, filename)
 	}
 
-	// look for jesseduffield/lazygit/filename in XDG_CONFIG_HOME and XDG_CONFIG_DIRS
+	// look for jesseduffield/lazygit/filename in XDG_CONFIG_HOME and XDG_CONFIG_DIRS, for users migrating from upstream lazygit
 	legacyConfigPath, err := xdg.SearchConfigFile(filepath.Join("jesseduffield", "lazygit", filename))
 	if err == nil {
 		return true, legacyConfigPath
 	}
 
-	// look for lazygit/filename in XDG_CONFIG_HOME and XDG_CONFIG_DIRS
-	configFilepath, err := xdg.SearchConfigFile(filepath.Join("lazygit", filename))
+	// look for malasgit/filename in XDG_CONFIG_HOME and XDG_CONFIG_DIRS
+	configFilepath, err := xdg.SearchConfigFile(filepath.Join("malasgit", filename))
 	if err == nil {
 		return true, configFilepath
 	}
 
-	return false, filepath.Join(xdg.ConfigHome, "lazygit", filename)
+	return false, filepath.Join(xdg.ConfigHome, "malasgit", filename)
 }
 
 var ConfigFilename = "config.yml"
@@ -653,8 +653,8 @@ func stateFilePath(filename string) (string, error) {
 		return legacyStateFile, nil
 	}
 
-	// looks for XDG_STATE_HOME/lazygit/filename
-	return xdg.StateFile(filepath.Join("lazygit", filename))
+	// looks for XDG_STATE_HOME/malasgit/filename
+	return xdg.StateFile(filepath.Join("malasgit", filename))
 }
 
 // SaveAppState marshalls the AppState struct and writes it to the disk
@@ -737,7 +737,7 @@ type AppState struct {
 	DidShowHunkStagingHint bool
 	LastVersion            string // this is the last version the user was using, for the purpose of showing release notes
 
-	// these are for shell commands typed in directly, not for custom commands in the lazygit config.
+	// these are for shell commands typed in directly, not for custom commands in the malasgit config.
 	// For backwards compatibility we keep the old name in yaml files.
 	ShellCommandsHistory []string `yaml:"customcommandshistory"`
 

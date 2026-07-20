@@ -6,12 +6,12 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/controllers/helpers"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/controllers/helpers"
+	"github.com/itokun99/malasgit/pkg/gui/style"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 )
 
@@ -319,7 +319,7 @@ func (self *HandlerCreator) finalHandler(customCommand config.CustomCommand, ses
 		if err != nil {
 			if customCommand.After != nil && customCommand.After.CheckForConflicts {
 				// The custom command may have started a rebase/merge/etc.; if so,
-				// it's one we consider started in lazygit, so that we offer to
+				// it's one we consider started in malasgit, so that we offer to
 				// continue it once its conflicts are resolved.
 				self.mergeAndRebaseHelper.RecordWhetherMergeOrRebaseStartedInLazygit()
 				return self.mergeAndRebaseHelper.CheckForConflicts(err)

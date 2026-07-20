@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/commands/models"
 	"github.com/spf13/afero"
 )
 

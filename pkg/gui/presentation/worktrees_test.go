@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	"github.com/gookit/color"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/i18n"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/i18n"
 	"github.com/stretchr/testify/assert"
 	"github.com/xo/terminfo"
 )

@@ -3,7 +3,7 @@ package models
 import (
 	"testing"
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/stefanhaller/git-todo-parser/todo"
 	"github.com/stretchr/testify/assert"
 )

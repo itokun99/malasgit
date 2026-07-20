@@ -3,8 +3,8 @@ package custom_commands
 import (
 	"fmt"
 
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 var AccessCommitProperties = NewIntegrationTest(NewIntegrationTestArgs{

@@ -3,8 +3,8 @@ package diff
 import (
 	"os"
 
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 // note: this is required to simulate the clipboard during CI

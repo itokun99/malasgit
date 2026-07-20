@@ -3,7 +3,7 @@ package context
 import (
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/sahilm/fuzzy"
 	"github.com/samber/lo"
 	"github.com/sasha-s/go-deadlock"

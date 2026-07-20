@@ -1,8 +1,8 @@
 package demo
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 var originalFile = `# Lazygit
@@ -28,7 +28,7 @@ Simple terminal UI for git
 
 ### Homebrew
 
-Just do brew install lazygit and bada bing bada
+Just do brew install malasgit and bada bing bada
 boom you have begun on the path of laziness.
 
 `

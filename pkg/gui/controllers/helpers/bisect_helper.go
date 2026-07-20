@@ -1,7 +1,7 @@
 package helpers
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/gui/types"
 )
 
 type BisectHelper struct {

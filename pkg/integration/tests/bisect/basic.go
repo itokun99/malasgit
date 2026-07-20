@@ -1,8 +1,8 @@
 package bisect
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 var Basic = NewIntegrationTest(NewIntegrationTestArgs{
@@ -45,7 +45,7 @@ var Basic = NewIntegrationTest(NewIntegrationTestArgs{
 			NavigateToLine(Contains("CI commit-02")).
 			Tap(markCommitAsGood).
 			TopLines(Contains("CI commit-10")).
-			// lazygit will land us in the commit between our good and bad commits.
+			// malasgit will land us in the commit between our good and bad commits.
 			SelectedLine(Contains("CI commit-05").Contains("<-- current")).
 			Tap(markCommitAsBad).
 			SelectedLine(Contains("CI commit-04").Contains("<-- current")).

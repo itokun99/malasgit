@@ -45,7 +45,7 @@
 A simple terminal UI for git commands
 <br/>
 
-[![GitHub Releases](https://img.shields.io/github/downloads/jesseduffield/lazygit/total)](https://github.com/jesseduffield/lazygit/releases) [![Go Report Card](https://goreportcard.com/badge/github.com/jesseduffield/lazygit)](https://goreportcard.com/report/github.com/jesseduffield/lazygit) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/f46416b715d74622895657935fcada21)](https://app.codacy.com/gh/jesseduffield/lazygit/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/f46416b715d74622895657935fcada21)](https://app.codacy.com/gh/jesseduffield/lazygit/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage) [![golangci-lint](https://img.shields.io/badge/linted%20by-golangci--lint-brightgreen)](https://golangci-lint.run/) [![GitHub tag](https://img.shields.io/github/v/tag/jesseduffield/lazygit?color=blue)](https://github.com/jesseduffield/lazygit/releases/latest) [![homebrew](https://img.shields.io/homebrew/v/lazygit?color=blue)](https://formulae.brew.sh/formula/lazygit)
+[![GitHub Releases](https://img.shields.io/github/downloads/itokun99/malasgit/total)](https://github.com/itokun99/malasgit/releases) [![Go Report Card](https://goreportcard.com/badge/github.com/itokun99/malasgit)](https://goreportcard.com/report/github.com/itokun99/malasgit) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/f46416b715d74622895657935fcada21)](https://app.codacy.com/gh/itokun99/malasgit/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/f46416b715d74622895657935fcada21)](https://app.codacy.com/gh/itokun99/malasgit/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage) [![golangci-lint](https://img.shields.io/badge/linted%20by-golangci--lint-brightgreen)](https://golangci-lint.run/) [![GitHub tag](https://img.shields.io/github/v/tag/itokun99/malasgit?color=blue)](https://github.com/itokun99/malasgit/releases/latest) [![homebrew](https://img.shields.io/homebrew/v/malasgit?color=blue)](https://formulae.brew.sh/formula/malasgit)
 
 ![commit_and_push](../assets/demo/commit_and_push-compressed.gif)
 
@@ -54,7 +54,7 @@ A simple terminal UI for git commands
 ## Sponsors
 
 <p align="center">
- Maintenance of this project is made possible by all the <a href="https://github.com/jesseduffield/lazygit/graphs/contributors">contributors</a> and <a href="https://github.com/sponsors/jesseduffield">sponsors</a>. If you'd like to sponsor this project and have your avatar or company logo appear below <a href="https://github.com/sponsors/jesseduffield">click here</a>. 💙
+ Maintenance of this project is made possible by all the <a href="https://github.com/itokun99/malasgit/graphs/contributors">contributors</a> and <a href="https://github.com/sponsors/jesseduffield">sponsors</a>. If you'd like to sponsor this project and have your avatar or company logo appear below <a href="https://github.com/sponsors/jesseduffield">click here</a>. 💙
 </p>
 
 <p align="center">
@@ -65,7 +65,7 @@ A simple terminal UI for git commands
 
 Rant time: You've heard it before, git is _powerful_, but what good is that power when everything is so damn hard to do? Interactive rebasing requires you to edit a goddamn TODO file in your editor? _Are you kidding me?_ To stage part of a file you need to use a command line program to step through each hunk and if a hunk can't be split down any further but contains code you don't want to stage, you have to edit an arcane patch file _by hand_? _Are you KIDDING me?!_ Sometimes you get asked to stash your changes when switching branches only to realise that after you switch and unstash that there weren't even any conflicts and it would have been fine to just checkout the branch directly? _YOU HAVE GOT TO BE KIDDING ME!_
 
-If you're a mere mortal like me and you're tired of hearing how powerful git is when in your daily life it's a powerful pain in your ass, lazygit might be for you.
+If you're a mere mortal like me and you're tired of hearing how powerful git is when in your daily life it's a powerful pain in your ass, malasgit might be for you.
 
 ## Table of contents
 
@@ -181,7 +181,7 @@ You can filter a view with `/`. Here we filter down our branches view and then h
 
 ### Invoke a custom command
 
-Lazygit has a very flexible [custom command system](docs/Custom_Command_Keybindings.md). In this example a custom command is defined which emulates the built-in branch checkout action.
+Malasgit has a very flexible [custom command system](docs/Custom_Command_Keybindings.md). In this example a custom command is defined which emulates the built-in branch checkout action.
 
 ![custom_command](../assets/demo/custom_command-compressed.gif)
 
@@ -230,7 +230,7 @@ If you press `shift+w` on a commit (or branch/ref) a menu will open that allows 
 
 ### Show GitHub pull requests
 
-In the branches panel, lazygit can show which of your branches have an associated GitHub pull request by showing a GitHub icon next to the branch name; its color shows the state of the PR (open, merged, etc.). For those that have one, you can press `shift-G` to open the PR in the browser. There is no configuration needed to enable this for github.com, but it requires the [`gh`](https://cli.github.com/) tool to be installed, and you need to do `gh auth login` once to allow lazygit to access GitHub. For GitHub Enterprise, also run `gh auth login --hostname <webDomain>` and add a [`services` entry](docs/Config.md#custom-pull-request-urls) for the host with the `github` provider.
+In the branches panel, malasgit can show which of your branches have an associated GitHub pull request by showing a GitHub icon next to the branch name; its color shows the state of the PR (open, merged, etc.). For those that have one, you can press `shift-G` to open the PR in the browser. There is no configuration needed to enable this for github.com, but it requires the [`gh`](https://cli.github.com/) tool to be installed, and you need to do `gh auth login` once to allow malasgit to access GitHub. For GitHub Enterprise, also run `gh auth login --hostname <webDomain>` and add a [`services` entry](docs/Config.md#custom-pull-request-urls) for the host with the `github` provider.
 
 ## Tutorials
 
@@ -242,7 +242,7 @@ In the branches panel, lazygit can show which of your branches have an associate
 
 ## Installation
 
-[![Packaging status](https://repology.org/badge/vertical-allrepos/lazygit.svg?columns=3)](https://repology.org/project/lazygit/versions)
+[![Packaging status](https://repology.org/badge/vertical-allrepos/malasgit.svg?columns=3)](https://repology.org/project/malasgit/versions)
 
 _Most of the above packages are maintained by third parties so be sure to vet them yourself and confirm that the maintainer is a trustworthy looking person who attends local sports games and gives back to their communities with barbeque fundraisers etc_
 
@@ -252,14 +252,14 @@ For Windows, Mac OS(10.12+) or Linux, you can download a binary release [here](.
 
 ### Dev container feature
 
-If you want to use lazygit in e.g. one of your GitHub Codespaces, there is a third-party [dev container feature](https://github.com/GeorgOfenbeck/features/tree/main/src/lazygit-linuxbinary) based on the binary releases mentioned above.
+If you want to use malasgit in e.g. one of your GitHub Codespaces, there is a third-party [dev container feature](https://github.com/GeorgOfenbeck/features/tree/main/src/malasgit-linuxbinary) based on the binary releases mentioned above.
 
 ### Homebrew
 
 It works with Linux, too.
 
 ```sh
-brew install lazygit
+brew install malasgit
 ```
 
 ### MacPorts
@@ -268,7 +268,7 @@ Latest version built from github releases.
 Tap:
 
 ```
-sudo port install lazygit
+sudo port install malasgit
 ```
 
 ### Void Linux
@@ -278,27 +278,27 @@ Packages for Void Linux are available in the distro repo
 They follow upstream latest releases
 
 ```sh
-sudo xbps-install -S lazygit
+sudo xbps-install -S malasgit
 ```
 
 ### Scoop (Windows)
 
-You can install `lazygit` using [scoop](https://scoop.sh/). It's in the `extras` bucket:
+You can install `malasgit` using [scoop](https://scoop.sh/). It's in the `extras` bucket:
 
 ```sh
 # Add the extras bucket
 scoop bucket add extras
 
-# Install lazygit
-scoop install lazygit
+# Install malasgit
+scoop install malasgit
 ```
 
 ### gah (Linux and Mac OS)
 
-You can install `lazygit` using [gah](https://github.com/marverix/gah/):
+You can install `malasgit` using [gah](https://github.com/marverix/gah/):
 
 ```sh
-gah install lazygit
+gah install malasgit
 ```
 
 ### Arch Linux
@@ -308,8 +308,8 @@ Packages for Arch Linux are available via pacman and AUR (Arch User Repository).
 There are two packages. The stable one which is built with the latest release
 and the git version which builds from the most recent commit.
 
-- Stable: `sudo pacman -S lazygit`
-- Development: <https://aur.archlinux.org/packages/lazygit-git/>
+- Stable: `sudo pacman -S malasgit`
+- Development: <https://aur.archlinux.org/packages/malasgit-git/>
 
 Instruction of how to install AUR content can be found here:
 <https://wiki.archlinux.org/index.php/Arch_User_Repository>
@@ -317,14 +317,14 @@ Instruction of how to install AUR content can be found here:
 ### Fedora / Amazon Linux 2023 / CentOS Stream
 
 Packages for Fedora, Amazon Linux 2023 and CentOS Stream are available via
-[Copr](https://copr.fedorainfracloud.org/coprs/dejan/lazygit/) (Cool Other Package Repo).
+[Copr](https://copr.fedorainfracloud.org/coprs/dejan/malasgit/) (Cool Other Package Repo).
 
 ```sh
-sudo dnf copr enable dejan/lazygit
-sudo dnf install lazygit
+sudo dnf copr enable dejan/malasgit
+sudo dnf install malasgit
 ```
 
-These packages are built using the RPM spec file located here: https://codeberg.org/dejan/rpm-lazygit
+These packages are built using the RPM spec file located here: https://codeberg.org/dejan/rpm-malasgit
 
 You should be able to build RPMs for Fedora 41 or older, and other Fedora derivatives using the
 SRPM (Source RPM) file that you can grab from the latest COPR build.
@@ -335,17 +335,17 @@ Packages for Fedora and RHEL derivatives are also available from the [Terra Repo
 
 ```sh
 sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-sudo dnf install lazygit
+sudo dnf install malasgit
 ```
 
 (Install guide for Atomic/EL can be found on their [README](https://github.com/terrapkg/packages/pull/9747))
 
-Terra also has `lazygit-doc`, which contains the contents of the [docs](https://github.com/jesseduffield/lazygit/tree/master/docs) folder.
+Terra also has `malasgit-doc`, which contains the contents of the [docs](https://github.com/itokun99/malasgit/tree/master/docs) folder.
 
 ### Solus Linux
 
 ```sh
-sudo eopkg install lazygit
+sudo eopkg install malasgit
 ```
 
 ### Debian and Ubuntu
@@ -353,93 +353,93 @@ sudo eopkg install lazygit
 For **Debian 13 "Trixie", Sid**, and later, or **Ubuntu 25.10 "Questing Quokka"** and later:
 
 ```sh
-sudo apt install lazygit
+sudo apt install malasgit
 ```
 
 For **Debian 12 "Bookworm", Ubuntu 25.04 "Plucky Puffin"** and earlier:
 
 ```sh
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
-LAZYGIT_ARCH=$(uname -m | sed -e 's/aarch64/arm64/')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_${LAZYGIT_ARCH}.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit -D -t /usr/local/bin/
+MALASGIT_VERSION=$(curl -s "https://api.github.com/repos/itokun99/malasgit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+MALASGIT_ARCH=$(uname -m | sed -e 's/aarch64/arm64/')
+curl -Lo malasgit.tar.gz "https://github.com/itokun99/malasgit/releases/download/v${MALASGIT_VERSION}/malasgit_${MALASGIT_VERSION}_Linux_${MALASGIT_ARCH}.tar.gz"
+tar xf malasgit.tar.gz malasgit
+sudo install malasgit -D -t /usr/local/bin/
 ```
 
-Verify the correct installation of lazygit:
+Verify the correct installation of malasgit:
 
 ```sh
-lazygit --version
+malasgit --version
 ```
 
 ### Funtoo Linux
 
-Funtoo Linux has an autogenerated lazygit package in [dev-kit](https://github.com/funtoo/dev-kit/tree/1.4-release/dev-vcs/lazygit):
+Funtoo Linux has an autogenerated malasgit package in [dev-kit](https://github.com/funtoo/dev-kit/tree/1.4-release/dev-vcs/malasgit):
 
 ```sh
-sudo emerge dev-vcs/lazygit
+sudo emerge dev-vcs/malasgit
 ```
 
 ### Gentoo Linux
 
-Lazygit is not (yet) in main Gentoo portage, however an ebuild is available in [GURU overlay](https://github.com/gentoo-mirror/guru/tree/master/dev-vcs/lazygit)
+Malasgit is not (yet) in main Gentoo portage, however an ebuild is available in [GURU overlay](https://github.com/gentoo-mirror/guru/tree/master/dev-vcs/malasgit)
 
-You can either add the overlay to your system and install lazygit as usual:
+You can either add the overlay to your system and install malasgit as usual:
 
 ```sh
 sudo eselect repository enable guru
 sudo emaint sync -r guru
-sudo emerge dev-vcs/lazygit
+sudo emerge dev-vcs/malasgit
 ```
 
 ### openSUSE
 
-The lazygit package is currently built in [devel:languages:go/lazygit](https://build.opensuse.org/package/show/devel:languages:go/lazygit).
+The malasgit package is currently built in [devel:languages:go/malasgit](https://build.opensuse.org/package/show/devel:languages:go/malasgit).
 
-To install lazygit on openSUSE Tumbleweed run:
+To install malasgit on openSUSE Tumbleweed run:
 
 ```sh
 sudo zypper ar https://download.opensuse.org/repositories/devel:/languages:/go/openSUSE_Factory/devel:languages:go.repo
-sudo zypper ref && sudo zypper in lazygit
+sudo zypper ref && sudo zypper in malasgit
 ```
 
-To install lazygit on openSUSE Leap run:
+To install malasgit on openSUSE Leap run:
 
 ```sh
 source /etc/os-release
 sudo zypper ar https://download.opensuse.org/repositories/devel:/languages:/go/$VERSION_ID/devel:languages:go.repo
-sudo zypper ref && sudo zypper in lazygit
+sudo zypper ref && sudo zypper in malasgit
 ```
 
 ### NixOS
 
-#### Using lazygit from nixpkgs
+#### Using malasgit from nixpkgs
 
-On NixOS, lazygit is packaged with nix and distributed via nixpkgs.
-You can try lazygit without installing it with:
+On NixOS, malasgit is packaged with nix and distributed via nixpkgs.
+You can try malasgit without installing it with:
 
 ```sh
-nix-shell -p lazygit
+nix-shell -p malasgit
 # or with flakes enabled
-nix run nixpkgs#lazygit
+nix run nixpkgs#malasgit
 ```
-Or you can add lazygit to your `configuration.nix` using the `environment.systemPackages` option.
+Or you can add malasgit to your `configuration.nix` using the `environment.systemPackages` option.
 More details can be found via NixOS search [page](https://search.nixos.org/).
 
-#### Using the official lazygit flake
+#### Using the official malasgit flake
 
 This repository includes a nix flake that provides the latest development version and additional development tools:
 
-**Run lazygit directly from the repository:**
+**Run malasgit directly from the repository:**
 ```sh
-nix run github:jesseduffield/lazygit
+nix run github:itokun99/malasgit
 # or from a local clone
 nix run .
 ```
 
-**Build lazygit from source:**
+**Build malasgit from source:**
 ```sh
-nix build github:jesseduffield/lazygit
+nix build github:itokun99/malasgit
 # or from a local clone
 nix build .
 ```
@@ -447,7 +447,7 @@ nix build .
 **Development environment:**
 For contributors, the flake provides a development shell with Go toolchain, development tools, and dependencies:
 ```sh
-nix develop github:jesseduffield/lazygit
+nix develop github:itokun99/malasgit
 # or from a local clone
 nix develop
 ```
@@ -461,21 +461,21 @@ The development shell includes:
 The flake also provides an overlay for easy integration into other flake-based projects:
 ```nix
 {
-  inputs.lazygit.url = "github:jesseduffield/lazygit";
+  inputs.malasgit.url = "github:itokun99/malasgit";
 
-  outputs = { self, nixpkgs, lazygit }: {
+  outputs = { self, nixpkgs, malasgit }: {
     # Use the overlay
-    nixpkgs.overlays = [ lazygit.overlays.default ];
+    nixpkgs.overlays = [ malasgit.overlays.default ];
   };
 }
 ```
 
 ### Flox
 
-Lazygit can be installed into a Flox environment as follows.
+Malasgit can be installed into a Flox environment as follows.
 
 ```sh
-flox install lazygit
+flox install malasgit
 ```
 
 More details about Flox can be found on [their website](https://flox.dev/).
@@ -483,49 +483,49 @@ More details about Flox can be found on [their website](https://flox.dev/).
 ### FreeBSD
 
 ```sh
-pkg install lazygit
+pkg install malasgit
 ```
 
 ### Termux
 
 ```sh
-apt install lazygit
+apt install malasgit
 ```
 
 ### Conda
 
-Released versions are available for different platforms, see <https://anaconda.org/conda-forge/lazygit>
+Released versions are available for different platforms, see <https://anaconda.org/conda-forge/malasgit>
 
 ```sh
-conda install -c conda-forge lazygit
+conda install -c conda-forge malasgit
 ```
 
 ### Go
 
 ```sh
-go install github.com/jesseduffield/lazygit@latest
+go install github.com/itokun99/malasgit@latest
 ```
 
 Please note:
-If you get an error claiming that lazygit cannot be found or is not defined, you
+If you get an error claiming that malasgit cannot be found or is not defined, you
 may need to add `~/go/bin` to your $PATH (macOS/Linux), or `%HOME%\go\bin`
 (Windows). Not to be mistaken for `C:\Go\bin` (which is for Go's own binaries,
-not apps like lazygit).
+not apps like malasgit).
 
 ### Chocolatey (Windows)
 
-You can install `lazygit` using [Chocolatey](https://chocolatey.org/):
+You can install `malasgit` using [Chocolatey](https://chocolatey.org/):
 
 ```sh
-choco install lazygit
+choco install malasgit
 ```
 
 ### Winget (Windows 10 1709 or later)
 
-You can install `lazygit` using the `winget` command in the Windows Terminal with the following command:
+You can install `malasgit` using the `winget` command in the Windows Terminal with the following command:
 
 ```powershell
-winget install -e --id=JesseDuffield.lazygit
+winget install -e --id=JesseDuffield.malasgit
 ```
 
 ### Manual
@@ -533,8 +533,8 @@ winget install -e --id=JesseDuffield.lazygit
 You'll need to [install Go](https://golang.org/doc/install)
 
 ```
-git clone https://github.com/jesseduffield/lazygit.git
-cd lazygit
+git clone https://github.com/itokun99/malasgit.git
+cd malasgit
 go install
 ```
 
@@ -542,14 +542,14 @@ You can also use `go run main.go` to compile and run in one go (pun definitely i
 
 ## Usage
 
-Call `lazygit` in your terminal inside a git repository.
+Call `malasgit` in your terminal inside a git repository.
 
 ```sh
-$ lazygit
+$ malasgit
 ```
 
 If you want, you can
-also add an alias for this with `echo "alias lg='lazygit'" >> ~/.zshrc` (or
+also add an alias for this with `echo "alias lg='malasgit'" >> ~/.zshrc` (or
 whichever rc file you're using).
 
 ### Keybindings
@@ -558,23 +558,23 @@ You can check out the list of keybindings [here](/docs/keybindings).
 
 ### Changing Directory On Exit
 
-If you change repos in lazygit and want your shell to change directory into that repo on exiting lazygit, add this to your `~/.zshrc` (or other rc file):
+If you change repos in malasgit and want your shell to change directory into that repo on exiting malasgit, add this to your `~/.zshrc` (or other rc file):
 
 ```
 lg()
 {
-    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+    export MALASGIT_NEW_DIR_FILE=~/.malasgit/newdir
 
-    lazygit "$@"
+    malasgit "$@"
 
-    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-            cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
-            rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    if [ -f $MALASGIT_NEW_DIR_FILE ]; then
+            cd "$(cat $MALASGIT_NEW_DIR_FILE)"
+            rm -f $MALASGIT_NEW_DIR_FILE > /dev/null
     fi
 }
 ```
 
-Then `source ~/.zshrc` and from now on when you call `lg` and exit you'll switch directories to whatever you were in inside lazygit. To override this behaviour you can exit using `shift+Q` rather than just `q`.
+Then `source ~/.zshrc` and from now on when you call `lg` and exit you'll switch directories to whatever you were in inside malasgit. To override this behaviour you can exit using `shift+Q` rather than just `q`.
 
 ### Undo/Redo
 
@@ -590,7 +590,7 @@ See the [docs](docs/Custom_Pagers.md)
 
 ### Custom Commands
 
-If lazygit is missing a feature, there's a good chance you can implement it yourself with a custom command!
+If malasgit is missing a feature, there's a good chance you can implement it yourself with a custom command!
 
 See the [docs](docs/Custom_Command_Keybindings.md)
 
@@ -605,15 +605,15 @@ For contributor discussion about things not better discussed here in the repo, j
 
 <a href="https://discord.gg/ehwFt2t4wt"><img src='../assets/discord.png' width='75'></a>
 
-Check out this [video](https://www.youtube.com/watch?v=kNavnhzZHtk) walking through the creation of a small feature in lazygit if you want an idea of where to get started.
+Check out this [video](https://www.youtube.com/watch?v=kNavnhzZHtk) walking through the creation of a small feature in malasgit if you want an idea of where to get started.
 
 ### Debugging Locally
 
-Run `lazygit --debug` in one terminal tab and `lazygit --logs` in another to view the program and its log output side by side
+Run `malasgit --debug` in one terminal tab and `malasgit --logs` in another to view the program and its log output side by side
 
 ## Donate
 
-If you would like to support the development of lazygit, consider [sponsoring me](https://github.com/sponsors/jesseduffield) (github is matching all donations dollar-for-dollar for 12 months)
+If you would like to support the development of malasgit, consider [sponsoring me](https://github.com/sponsors/jesseduffield) (github is matching all donations dollar-for-dollar for 12 months)
 
 ## FAQ
 
@@ -630,7 +630,7 @@ If you want to see what I (Jesse) am up to in terms of development, follow me on
 
 ## Alternatives
 
-If you find that lazygit doesn't quite satisfy your requirements, these may be a better fit:
+If you find that malasgit doesn't quite satisfy your requirements, these may be a better fit:
 
 - [GitUI](https://github.com/Extrawurst/gitui)
 - [tig](https://github.com/jonas/tig)

@@ -9,7 +9,7 @@ func NewDummyAppConfig() *AppConfig {
 	userConfig := GetDefaultConfig()
 	userConfig.Keybinding.MergeLegacyAltKeybindings()
 	appConfig := &AppConfig{
-		name:       "lazygit",
+		name:       "malasgit",
 		version:    "unversioned",
 		debug:      false,
 		userConfig: userConfig,

@@ -4,11 +4,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
-// When the new repo's .envrc is blocked, lazygit offers the user a popup to
+// When the new repo's .envrc is blocked, malasgit offers the user a popup to
 // approve it without leaving the app. Confirming runs `direnv allow` and
 // re-runs the load so the env reaches subprocesses immediately.
 var DirenvApprovesEnvrc = NewIntegrationTest(NewIntegrationTestArgs{

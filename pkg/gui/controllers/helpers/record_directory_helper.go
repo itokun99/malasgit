@@ -14,7 +14,7 @@ func NewRecordDirectoryHelper(c *HelperCommon) *RecordDirectoryHelper {
 	}
 }
 
-// when a user runs lazygit with the LAZYGIT_NEW_DIR_FILE env variable defined
+// when a user runs malasgit with the LAZYGIT_NEW_DIR_FILE env variable defined
 // we will write the current directory to that file on exit so that their
 // shell can then change to that directory. That means you don't get kicked
 // back to the directory that you started with.

@@ -131,8 +131,8 @@ var RandomFiles = []RandomFile{
 	{Name: `config/session.go`, Content: `package config`},
 	{Name: `security/rate_limit.go`, Content: `package security`},
 	{Name: `product/sort_list.go`, Content: `package product`},
-	{Name: `lazygit/diff_view.go`, Content: `package lazygit`},
-	{Name: `performance/lazygit.go`, Content: `package performance`},
+	{Name: `malasgit/diff_view.go`, Content: `package malasgit`},
+	{Name: `performance/malasgit.go`, Content: `package performance`},
 	{Name: `docs/documentation.go`, Content: `package docs`},
 	{Name: `config/global_variables.go`, Content: `package config`},
 	{Name: `Gemfile`, Content: `source 'https://rubygems.org'`},
@@ -248,7 +248,7 @@ import (
 
 	"github.com/jesseduffield/generics/set"
 	"github.com/jesseduffield/lazycore/pkg/utils"
-	"github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/integration/components"
 	"github.com/samber/lo"
 )
 
@@ -272,14 +272,14 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/commands/git_commands"
+	"github.com/itokun99/malasgit/pkg/config"
+	integrationTypes "github.com/itokun99/malasgit/pkg/integration/types"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 )
 
-// IntegrationTest describes an integration test that will be run against the lazygit gui.
+// IntegrationTest describes an integration test that will be run against the malasgit gui.
 
 // our unit tests will use this description to avoid a panic caused by attempting
 // to get the test's name via it's file's path.
@@ -297,8 +297,8 @@ import (
 	"time"
 
 	"github.com/atotto/clipboard"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
+	"github.com/itokun99/malasgit/pkg/config"
+	integrationTypes "github.com/itokun99/malasgit/pkg/integration/types"
 )
 
 type TestDriver struct {
@@ -344,11 +344,11 @@ import (
 
 	"github.com/kardianos/osext"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/constants"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/common"
+	"github.com/itokun99/malasgit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/constants"
+	"github.com/itokun99/malasgit/pkg/utils"
 )
 
 // Updater checks for updates and does updates
@@ -390,7 +390,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/utils"
 )
 
 func main() {

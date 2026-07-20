@@ -11,7 +11,7 @@ install:
 
 .PHONY: run
 run: build
-	./lazygit
+	./malasgit
 
 # Run `make run-debug` in one terminal tab and `make print-log` in another to view the program and its log output side by side
 .PHONY: run-debug
@@ -43,7 +43,7 @@ lint:
 	./scripts/gofumpt-check.sh
 	./scripts/golangci-lint-shim.sh run
 
-# For more details about integration test, see https://github.com/jesseduffield/lazygit/blob/master/pkg/integration/README.md.
+# For more details about integration test, see https://github.com/itokun99/malasgit/blob/master/pkg/integration/README.md.
 .PHONY: integration-test-tui
 integration-test-tui:
 	go run cmd/integration_test/main.go tui $(filter-out $@,$(MAKECMDGOALS))

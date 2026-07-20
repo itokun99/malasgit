@@ -26,7 +26,7 @@ type TaskImpl struct {
 	// writes are already guarded against a concurrent repo switch by the repo
 	// generation; and view-buffer content rendering, which only paints a view
 	// and so is harmless to leave running across a switch. What stays
-	// foreground is lazygit driving a git operation and applying its results
+	// foreground is malasgit driving a git operation and applying its results
 	// to the model — exactly the work a repo switch must not run underneath.
 	background bool
 }

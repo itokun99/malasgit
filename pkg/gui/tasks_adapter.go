@@ -5,8 +5,8 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/tasks"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/tasks"
 )
 
 func (gui *Gui) newCmdTask(view *gocui.View, cmd *exec.Cmd, prefix string) error {
@@ -157,7 +157,7 @@ func (gui *Gui) getManager(view *gocui.View) *tasks.ViewBufferManager {
 			},
 			func() gocui.Task {
 				// A background task: rendering content into a view is display
-				// work, not lazygit driving a git operation, so it must not
+				// work, not malasgit driving a git operation, so it must not
 				// count towards being busy and block a repo switch. These
 				// renders fire on nearly every focus/selection change, including
 				// the context activation that happens right before a menu/prompt

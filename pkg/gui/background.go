@@ -6,9 +6,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/utils"
 )
 
 type BackgroundRoutineMgr struct {
@@ -16,7 +16,7 @@ type BackgroundRoutineMgr struct {
 
 	// When this is greater than zero, the background routines (e.g. file refresh)
 	// skip their work. We pause them while the gui is suspended (e.g. for a
-	// subprocess) and while lazygit is itself driving a git operation that would
+	// subprocess) and while malasgit is itself driving a git operation that would
 	// otherwise be caught mid-flight (see the waiting-status helpers). It's a
 	// count rather than a bool because these pause scopes can overlap.
 	pauseRefreshesCount atomic.Int32
@@ -205,7 +205,7 @@ func (self *BackgroundRoutineMgr) goEvery(interval time.Duration, stop, retrigge
 				return
 			}
 			// OnWorkerBackground, not OnWorker: these routines and the refreshes
-			// they trigger must not count towards lazygit being busy, or they'd
+			// they trigger must not count towards malasgit being busy, or they'd
 			// spuriously block a repo switch every time one happens to be running.
 			self.gui.c.OnWorkerBackground(func(gocui.Task) error {
 				_ = function(retriggered)

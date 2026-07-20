@@ -6,20 +6,20 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/itokun99/malasgit/pkg/commands/git_commands"
+	"github.com/itokun99/malasgit/pkg/commands/hosting_service"
+	"github.com/itokun99/malasgit/pkg/commands/models"
+	"github.com/itokun99/malasgit/pkg/config"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/context"
+	"github.com/itokun99/malasgit/pkg/gui/context/traits"
+	"github.com/itokun99/malasgit/pkg/gui/filetree"
+	"github.com/itokun99/malasgit/pkg/gui/mergeconflicts"
+	"github.com/itokun99/malasgit/pkg/gui/presentation"
+	"github.com/itokun99/malasgit/pkg/gui/style"
+	"github.com/itokun99/malasgit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/jesseduffield/generics/set"
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/hosting_service"
-	"github.com/jesseduffield/lazygit/pkg/commands/models"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/context"
-	"github.com/jesseduffield/lazygit/pkg/gui/context/traits"
-	"github.com/jesseduffield/lazygit/pkg/gui/filetree"
-	"github.com/jesseduffield/lazygit/pkg/gui/mergeconflicts"
-	"github.com/jesseduffield/lazygit/pkg/gui/presentation"
-	"github.com/jesseduffield/lazygit/pkg/gui/style"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
 	"github.com/samber/lo"
 	"github.com/sasha-s/go-deadlock"
 )
@@ -36,7 +36,7 @@ type RefreshHelper struct {
 
 	// Tracks repos for which the user has dismissed the "select base GitHub remote"
 	// prompt, to avoid re-prompting on every subsequent refresh within the same session.
-	// Keyed by repo path so that switching to a different repo while lazygit is running
+	// Keyed by repo path so that switching to a different repo while malasgit is running
 	// still triggers the prompt there.
 	githubBaseRemotePromptDismissed map[string]bool
 
@@ -91,7 +91,7 @@ func (self *RefreshHelper) RefreshFromWorker(options types.RefreshOptions) {
 
 type refreshEnv struct {
 	// whether this is a background refresh (which selects the dispatch variant that
-	// doesn't count towards lazygit being busy)
+	// doesn't count towards malasgit being busy)
 	background bool
 
 	// the repo generation captured when the refresh started
@@ -1143,7 +1143,7 @@ func (self *RefreshHelper) onUIThreadUnlessRepoChanged(env refreshEnv, f func())
 // onWorker and onUIThread pick the foreground or background variant of the
 // corresponding dispatch method depending on whether we're servicing a
 // background refresh. Background refreshes (auto-fetch and friends) must not
-// count towards lazygit being busy, or they'd spuriously block a repo switch;
+// count towards malasgit being busy, or they'd spuriously block a repo switch;
 // see the *Background methods on gocui.Gui.
 func (self *RefreshHelper) onWorker(background bool, f func(gocui.Task) error) {
 	if background {
@@ -1269,7 +1269,7 @@ func (self *RefreshHelper) refreshStateFiles(captured capturedFilesState, env re
 			// The conflicts of an operation we started have just been resolved
 			// (e.g. in the user's editor). Offer to continue it. We only do this
 			// for operations we started ourselves; prompting for one that was
-			// started outside lazygit (e.g. by a coding agent) would be confusing.
+			// started outside malasgit (e.g. by a coding agent) would be confusing.
 			self.onUIThreadUnlessRepoChanged(env, func() {
 				// The merge-conflicts scope of this refresh also notices that
 				// the conflicts are gone and escapes from the merge conflicts
@@ -1290,7 +1290,7 @@ func (self *RefreshHelper) refreshStateFiles(captured capturedFilesState, env re
 	} else {
 		// Either there's no operation in progress any more, or new conflicts have
 		// appeared. Either way, a "continue?" prompt we're showing is now stale
-		// (e.g. the operation was continued or aborted outside lazygit), so
+		// (e.g. the operation was continued or aborted outside malasgit), so
 		// dismiss it rather than leave the user with a prompt that would fail.
 		// Guard on the generation like the sibling PromptToContinueRebase
 		// bounce above: if the repo was switched while this refresh was in

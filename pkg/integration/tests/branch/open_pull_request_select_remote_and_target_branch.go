@@ -1,8 +1,8 @@
 package branch
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/config"
-	. "github.com/jesseduffield/lazygit/pkg/integration/components"
+	"github.com/itokun99/malasgit/pkg/config"
+	. "github.com/itokun99/malasgit/pkg/integration/components"
 )
 
 var OpenPullRequestSelectRemoteAndTargetBranch = NewIntegrationTest(NewIntegrationTestArgs{
@@ -28,8 +28,8 @@ var OpenPullRequestSelectRemoteAndTargetBranch = NewIntegrationTest(NewIntegrati
 		// To allow a pull request to be created from a branch, it must have an upstream set.
 		shell.SetBranchUpstream("branch-2", "origin/branch-2")
 
-		shell.RunCommand([]string{"git", "remote", "set-url", "origin", "https://github.com/my-personal-fork/lazygit"})
-		shell.RunCommand([]string{"git", "remote", "set-url", "upstream", "https://github.com/jesseduffield/lazygit"})
+		shell.RunCommand([]string{"git", "remote", "set-url", "origin", "https://github.com/my-personal-fork/malasgit"})
+		shell.RunCommand([]string{"git", "remote", "set-url", "upstream", "https://github.com/itokun99/malasgit"})
 	},
 	Run: func(t *TestDriver, keys config.KeybindingConfig) {
 		// Open a PR for the current branch (i.e. 'branch-2')
@@ -69,6 +69,6 @@ var OpenPullRequestSelectRemoteAndTargetBranch = NewIntegrationTest(NewIntegrati
 		// the link is not yet correct. Thus, this test is expected to fail once this is fixed.
 		t.FileSystem().FileContent(
 			"/tmp/openlink",
-			Equals("https://github.com/my-personal-fork/lazygit/compare/master...branch-2?expand=1\n"))
+			Equals("https://github.com/my-personal-fork/malasgit/compare/master...branch-2?expand=1\n"))
 	},
 })

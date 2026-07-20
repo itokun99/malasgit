@@ -8,17 +8,17 @@ import (
 	"os/exec"
 	"strconv"
 
-	"github.com/jesseduffield/lazygit/pkg/common"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/common"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 )
 
-// Sometimes lazygit will be invoked in daemon mode from a parent lazygit process.
+// Sometimes malasgit will be invoked in daemon mode from a parent malasgit process.
 // We do this when git lets us supply a program to run within a git command.
 // For example, if we want to ensure that a git command doesn't hang due to
-// waiting for an editor to save a commit message, we can tell git to invoke lazygit
-// as the editor via 'GIT_EDITOR=lazygit', and use the env var
-// 'LAZYGIT_DAEMON_KIND=1' (exit immediately) to specify that we want to run lazygit
+// waiting for an editor to save a commit message, we can tell git to invoke malasgit
+// as the editor via 'GIT_EDITOR=malasgit', and use the env var
+// 'LAZYGIT_DAEMON_KIND=1' (exit immediately) to specify that we want to run malasgit
 // as a daemon which simply exits immediately.
 //
 // 'Daemon' is not the best name for this, because it's not a persistent background
@@ -100,8 +100,8 @@ func getCommentChar() byte {
 	return '#'
 }
 
-// An Instruction is a command to be run by lazygit in daemon mode.
-// It is serialized to json and passed to lazygit via environment variables
+// An Instruction is a command to be run by malasgit in daemon mode.
+// It is serialized to json and passed to malasgit via environment variables
 type Instruction interface {
 	Kind() DaemonKind
 	SerializedInstructions() string

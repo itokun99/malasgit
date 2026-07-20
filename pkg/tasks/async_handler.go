@@ -1,7 +1,7 @@
 package tasks
 
 import (
-	"github.com/jesseduffield/lazygit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gocui"
 	"github.com/sasha-s/go-deadlock"
 )
 

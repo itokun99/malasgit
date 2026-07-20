@@ -5,14 +5,14 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/config"
-	integrationTypes "github.com/jesseduffield/lazygit/pkg/integration/types"
-	"github.com/jesseduffield/lazygit/pkg/utils"
+	"github.com/itokun99/malasgit/pkg/commands/git_commands"
+	"github.com/itokun99/malasgit/pkg/config"
+	integrationTypes "github.com/itokun99/malasgit/pkg/integration/types"
+	"github.com/itokun99/malasgit/pkg/utils"
 	"github.com/samber/lo"
 )
 
-// IntegrationTest describes an integration test that will be run against the lazygit gui.
+// IntegrationTest describes an integration test that will be run against the malasgit gui.
 
 // our unit tests will use this description to avoid a panic caused by attempting
 // to get the test's name via it's file's path.
@@ -52,7 +52,7 @@ type NewIntegrationTestArgs struct {
 	SetupConfig func(config *config.AppConfig)
 	// runs the test
 	Run func(t *TestDriver, keys config.KeybindingConfig)
-	// additional args passed to lazygit
+	// additional args passed to malasgit
 	ExtraCmdArgs []string
 	ExtraEnvVars map[string]string
 	// for when a test is flakey

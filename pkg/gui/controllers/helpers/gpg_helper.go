@@ -3,10 +3,10 @@ package helpers
 import (
 	"fmt"
 
-	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
-	"github.com/jesseduffield/lazygit/pkg/commands/oscommands"
-	"github.com/jesseduffield/lazygit/pkg/gocui"
-	"github.com/jesseduffield/lazygit/pkg/gui/types"
+	"github.com/itokun99/malasgit/pkg/commands/git_commands"
+	"github.com/itokun99/malasgit/pkg/commands/oscommands"
+	"github.com/itokun99/malasgit/pkg/gocui"
+	"github.com/itokun99/malasgit/pkg/gui/types"
 )
 
 type GpgHelper struct {
@@ -47,7 +47,7 @@ func (self *GpgHelper) WithGpgHandlingAndSelectHeadCommit(
 }
 
 // Currently there is a bug where if we switch to a subprocess from within
-// WithWaitingStatus we get stuck there and can't return to lazygit. We could
+// WithWaitingStatus we get stuck there and can't return to malasgit. We could
 // fix this bug, or just stop running subprocesses from within there, given that
 // we don't need to see a loading status if we're in a subprocess.
 func (self *GpgHelper) withGpgHandling(
