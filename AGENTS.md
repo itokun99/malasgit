@@ -420,3 +420,16 @@ for it in `go.mod`/`go.sum` or the module cache (`$GOMODCACHE`); it isn't
 there. When you need to read or change gocui internals (the task manager, the
 event loop, worker/UI-thread dispatch, view rendering), edit `pkg/gocui`
 directly.
+
+## AI workflow
+
+This file is the canonical guide. `.agents/rules/` mirrors it as focused,
+load-on-demand rule files so AI agents can pull only the context they need for
+the current task.
+
+Start at [`.agents/rules/index.md`](.agents/rules/index.md), which lists each
+focused file and when to read it. When the focused file says "Canonical
+source: AGENTS.md § …", defer to this document for the full text — the
+focused files are extracts, not duplicates.
+
+If guidance here and in `.agents/rules/` ever drift, this file wins.
