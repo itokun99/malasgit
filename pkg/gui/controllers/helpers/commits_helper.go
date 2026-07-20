@@ -1,11 +1,13 @@
 package helpers
 
 import (
+	"context"
 	"errors"
 	"path/filepath"
 	"strings"
 	"time"
 
+	"github.com/jesseduffield/lazygit/pkg/ai"
 	"github.com/jesseduffield/lazygit/pkg/commands/git_commands"
 	"github.com/jesseduffield/lazygit/pkg/gocui"
 	"github.com/jesseduffield/lazygit/pkg/gui/types"
@@ -245,6 +247,13 @@ func (self *CommitsHelper) OpenCommitMenu(suggestionFunc func(string) []*types.S
 			},
 			Keys: menuKey('p'),
 		},
+		{
+			Label: self.c.Tr.GenerateAIMessageSuggestion,
+			OnPress: func() error {
+				return self.GenerateAIMessage()
+			},
+			Keys: menuKey('g'),
+		},
 	}
 	return self.c.Menu(types.CreateMenuOptions{
 		Title: self.c.Tr.CommitMenuTitle,
@@ -264,6 +273,40 @@ func (self *CommitsHelper) addCoAuthor(suggestionFunc func(string) []*types.Sugg
 		},
 	})
 
+	return nil
+}
+
+func (self *CommitsHelper) GenerateAIMessage() error {
+	client, err := ai.NewClientFromUserConfig(self.c.UserConfig().AI)
+	if err != nil {
+		self.c.Toast(err.Error())
+		return nil
+	}
+	return self.GenerateCommitMessage(context.Background(), client)
+}
+
+func (self *CommitsHelper) GenerateCommitMessage(ctx context.Context, client ai.CommitGenerator) error {
+	diff, err := self.c.Git().Diff.GetDiff(true)
+	if err != nil {
+		return err
+	}
+
+	return applyDraft(client, diff, ctx, func(summary, description string) {
+		self.setSummaryAndDescriptionInView(summary, description)
+	})
+}
+
+func applyDraft(
+	client ai.CommitGenerator,
+	diff string,
+	ctx context.Context,
+	apply func(summary, description string),
+) error {
+	result, err := client.GenerateCommitMessage(ctx, diff)
+	if err != nil {
+		return err
+	}
+	apply(result.Summary, result.Description)
 	return nil
 }
 

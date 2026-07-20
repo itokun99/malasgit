@@ -8,6 +8,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/jesseduffield/lazygit/pkg/config"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -178,4 +179,46 @@ func TestNew_RequiresEndpoint(t *testing.T) {
 func TestNew_RequiresModel(t *testing.T) {
 	_, err := New(Options{Endpoint: "http://x", ApiKey: "y"})
 	assert.Error(t, err)
+}
+
+func TestNewClientFromUserConfig_Disabled(t *testing.T) {
+	cfg := config.AIConfig{Enabled: false}
+	_, err := NewClientFromUserConfig(cfg)
+	assert.Error(t, err)
+	assert.Contains(t, err.Error(), "disabled")
+}
+
+func TestNewClientFromUserConfig_EnabledMissingEndpoint(t *testing.T) {
+	cfg := config.AIConfig{Enabled: true}
+	_, err := NewClientFromUserConfig(cfg)
+	assert.Error(t, err)
+	assert.Contains(t, err.Error(), "endpoint")
+}
+
+func TestNewClientFromUserConfig_EnvKeyWins(t *testing.T) {
+	t.Setenv("AI_API_KEY", "from-env")
+	cfg := config.AIConfig{
+		Enabled:  true,
+		Endpoint: "https://api.example.com/v1/chat/completions",
+		Model:    "gpt-4o-mini",
+		ApiKey:   "from-config",
+	}
+	got, err := NewClientFromUserConfig(cfg)
+	assert.NoError(t, err)
+	assert.NotNil(t, got)
+	assert.Equal(t, "from-env", got.apiKey)
+}
+
+func TestNewClientFromUserConfig_ConfigKeyFallback(t *testing.T) {
+	t.Setenv("AI_API_KEY", "")
+	cfg := config.AIConfig{
+		Enabled:  true,
+		Endpoint: "https://api.example.com/v1/chat/completions",
+		Model:    "gpt-4o-mini",
+		ApiKey:   "from-config",
+	}
+	got, err := NewClientFromUserConfig(cfg)
+	assert.NoError(t, err)
+	assert.NotNil(t, got)
+	assert.Equal(t, "from-config", got.apiKey)
 }
