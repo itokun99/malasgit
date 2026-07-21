@@ -628,24 +628,48 @@ func (c *AppConfig) GetTempDir() string {
 
 // findConfigFile looks for a possibly existing config file.
 // This function does NOT create any folders or files.
+//
+// Canonical path:  XDG_CONFIG_HOME/malasgit/config.yml  (normally ~/.config/malasgit/config.yml).
+// Legacy migration:  jesseduffield/lazygit/config.yml  is searched last for cross-migration compatibility.
 func findConfigFile(filename string) (exists bool, path string) {
 	if envConfigDir := os.Getenv("CONFIG_DIR"); envConfigDir != "" {
 		return true, filepath.Join(envConfigDir, filename)
 	}
 
-	// look for jesseduffield/lazygit/filename in XDG_CONFIG_HOME and XDG_CONFIG_DIRS, for users migrating from upstream lazygit
-	legacyConfigPath, err := xdg.SearchConfigFile(filepath.Join("jesseduffield", "lazygit", filename))
-	if err == nil {
-		return true, legacyConfigPath
+	homeDir, err := os.UserHomeDir()
+	if err != nil {
+		homeDir = ""
 	}
 
-	// look for malasgit/filename in XDG_CONFIG_HOME and XDG_CONFIG_DIRS
-	configFilepath, err := xdg.SearchConfigFile(filepath.Join("malasgit", filename))
-	if err == nil {
-		return true, configFilepath
+	candidate := ""
+	// Prefer $XDG_CONFIG_HOME/malasgit/config.yml on all non-Windows platforms.
+	xdgConfig := os.Getenv("XDG_CONFIG_HOME")
+	if homeDir != "" && xdgConfig == "" {
+		xdgConfig = filepath.Join(homeDir, ".config")
+	}
+	if xdgConfig != "" {
+		candidate = filepath.Join(xdgConfig, "malasgit", filename)
 	}
 
-	return false, filepath.Join(xdg.ConfigHome, "malasgit", filename)
+	// Check the canonical XDG path first.
+	if candidate != "" {
+		if _, err := os.Stat(candidate); err == nil {
+			return true, candidate
+		}
+	}
+
+	// Legacy migration: check jesseduffield/lazygit (both XDG and legacy
+	// macOS / Windows locations) so that migrating users don't lose config.
+	if legacyPath, err := xdg.SearchConfigFile(filepath.Join("jesseduffield", "lazygit", filename)); err == nil {
+		return true, legacyPath
+	}
+
+	// Fallback to the default XDG location (may not exist yet).
+	if candidate == "" {
+		candidate = filepath.Join(xdg.ConfigHome, "malasgit", filename)
+	}
+
+	return false, candidate
 }
 
 var ConfigFilename = "config.yml"
