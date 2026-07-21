@@ -146,10 +146,10 @@ func TestGenerateCommitMessage_Timeout(t *testing.T) {
 
 func TestTruncateDiff(t *testing.T) {
 	short := "abc"
-	assert.Equal(t, short, truncateDiff(short, 100))
+	assert.Equal(t, short, TruncateDiff(short, 100))
 
 	big := strings.Repeat("x", 200)
-	out := truncateDiff(big, 50)
+	out := TruncateDiff(big, 50)
 	assert.Len(t, out, 50)
 }
 

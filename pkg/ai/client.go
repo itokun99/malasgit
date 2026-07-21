@@ -170,10 +170,9 @@ func splitSummary(content string) Result {
 	}
 }
 
-// truncateDiff caps a diff at maxBytes. It exists primarily so the chat-panel
-// caller can pre-truncate before prompting; the client itself does not truncate
-// because it has no opinion about MaxDiffSize — that's a caller-side concern.
-func truncateDiff(diff string, maxBytes int) string {
+// TruncateDiff caps a diff at maxBytes. Callers use it to pre-truncate large
+// diffs to AIConfig.MaxDiffSize before sending them to the endpoint.
+func TruncateDiff(diff string, maxBytes int) string {
 	if maxBytes <= 0 || len(diff) <= maxBytes {
 		return diff
 	}
