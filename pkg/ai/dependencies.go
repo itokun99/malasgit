@@ -19,7 +19,7 @@ func NewClientFromUserConfig(cfg config.AIConfig) (*Client, error) {
 		return nil, fmt.Errorf("AI not configured: %w", err)
 	}
 
-	endpoint := strings.TrimRight(cfg.Endpoint, "/chat/completions") + "/chat/completions"
+	endpoint := strings.TrimSuffix(cfg.Endpoint, "/chat/completions") + "/chat/completions"
 	apiKey := ResolveAPIKey(aiAPIKeyEnvVar, cfg.ApiKey)
 	if apiKey == "" {
 		return nil, errors.New("AI API key is empty: set " + aiAPIKeyEnvVar + " or ai.apiKey in config")

@@ -291,6 +291,8 @@ func (self *CommitsHelper) GenerateCommitMessage(ctx context.Context, client ai.
 		return err
 	}
 
+	diff = ai.TruncateDiff(diff, self.c.UserConfig().AI.MaxDiffSize)
+
 	return applyDraft(client, diff, ctx, func(summary, description string) {
 		self.setSummaryAndDescriptionInView(summary, description)
 	})
