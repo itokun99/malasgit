@@ -3,6 +3,40 @@
   "$id": "https://github.com/itokun99/malasgit/pkg/config/user-config",
   "$ref": "#/$defs/UserConfig",
   "$defs": {
+    "AIConfig": {
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "If true, the 'g' keybinding in the commit message panel generates a commit message using the configured AI provider.",
+          "default": false
+        },
+        "endpoint": {
+          "type": "string",
+          "description": "OpenAI-compatible chat-completions endpoint. Examples: `https://api.openai.com/v1/chat/completions`, `http://localhost:11434/v1/chat/completions` for Ollama."
+        },
+        "model": {
+          "type": "string",
+          "description": "Model name to send in the request body (e.g. `gpt-4o-mini`, `llama3.1`, `qwen2.5-coder`)."
+        },
+        "apiKey": {
+          "type": "string",
+          "description": "API key for the AI provider. Prefer the `AI_API_KEY` environment variable to keep the key out of dotfiles. If both are set, the environment variable wins."
+        },
+        "timeout": {
+          "type": "integer",
+          "description": "HTTP timeout in seconds for the AI request. Defaults to 30.",
+          "default": 30
+        },
+        "maxDiffSize": {
+          "type": "integer",
+          "description": "Maximum size of the diff sent to the AI in bytes. Diffs larger than this are truncated before sending. Defaults to 50000.",
+          "default": 50000
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "description": "Config relating to optional AI integrations, e.g. generating commit messages from staged changes."
+    },
     "CommitConfig": {
       "properties": {
         "signOff": {
@@ -1254,6 +1288,20 @@
             }
           ],
           "default": "\u003cctrl+o\u003e"
+        },
+        "generateMessage": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "default": "g"
         }
       },
       "additionalProperties": false,
@@ -3855,6 +3903,10 @@
         "os": {
           "$ref": "#/$defs/OSConfig",
           "description": "Config relating to things outside of Lazygit like how files are opened, copying to clipboard, etc"
+        },
+        "ai": {
+          "$ref": "#/$defs/AIConfig",
+          "description": "Config relating to optional AI integrations, e.g. generating commit messages from staged changes."
         },
         "disableStartupPopups": {
           "type": "boolean",

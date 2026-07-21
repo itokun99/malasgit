@@ -2,26 +2,26 @@
 
 Default path for the global config file:
 
-- Linux: `~/.config/lazygit/config.yml`
-- MacOS: `~/Library/Application\ Support/lazygit/config.yml`
-- Windows: `%LOCALAPPDATA%\lazygit\config.yml` (default location, but it will also be found in `%APPDATA%\lazygit\config.yml`
+- Linux: `~/.config/malasgit/config.yml`
+- MacOS: `~/Library/Application\ Support/malasgit/config.yml`
+- Windows: `%LOCALAPPDATA%\malasgit\config.yml` (default location, but it will also be found in `%APPDATA%\malasgit\config.yml`
 
 For old installations (slightly embarrassing: I didn't realise at the time that you didn't need to supply a vendor name to the path so I just used my name):
 
-- Linux: `~/.config/jesseduffield/lazygit/config.yml`
-- MacOS: `~/Library/Application\ Support/jesseduffield/lazygit/config.yml`
-- Windows: `%APPDATA%\jesseduffield\lazygit\config.yml`
+- Linux: `~/.config/jesseduffield/malasgit/config.yml`
+- MacOS: `~/Library/Application\ Support/jesseduffield/malasgit/config.yml`
+- Windows: `%APPDATA%\jesseduffield\malasgit\config.yml`
 
 If you want to change the config directory:
 
 - MacOS: `export XDG_CONFIG_HOME="$HOME/.config"`
 
-In addition to the global config file you can create repo-specific config files in `<repo>/.git/lazygit.yml`. Settings in these files override settings in the global config file. In addition, files called `.lazygit.yml` in any of the parent directories of a repo will also be loaded; this can be useful if you have settings that you want to apply to a group of repositories.
+In addition to the global config file you can create repo-specific config files in `<repo>/.git/malasgit.yml`. Settings in these files override settings in the global config file. In addition, files called `.malasgit.yml` in any of the parent directories of a repo will also be loaded; this can be useful if you have settings that you want to apply to a group of repositories.
 
 JSON schema is available for `config.yml` so that IntelliSense in Visual Studio Code (completion and error checking) is automatically enabled when the [YAML Red Hat][yaml] extension is installed. However, note that automatic schema detection only works if your config file is in one of the standard paths mentioned above. If you override the path to the file, you can still make IntelliSense work by adding
 
 ```yaml
-# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/malasgit/master/schema/config.json
 ```
 
 to the top of your config file or via [Visual Studio Code settings.json config][settings].
@@ -37,14 +37,14 @@ This is only meant as a reference for what config options exist, and what their 
 ```yaml
 # Config relating to the Lazygit UI
 gui:
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-author-color
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-author-color
   authorColors: {}
 
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-branch-color
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-branch-color
   branchColorPatterns: {}
 
   # Custom icons for filenames and file extensions
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-files-icon--color
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-files-icon--color
   customIcons:
     # Map of filenames to icon properties (icon and color)
     filenames: {}
@@ -58,7 +58,7 @@ gui:
   # If true, allow scrolling past the bottom of the content in the main window
   scrollPastBottom: true
 
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#scroll-off-margin
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#scroll-off-margin
   scrollOffMargin: 2
 
   # One of: 'margin' (default) | 'jump'
@@ -170,7 +170,7 @@ gui:
   shortTimeFormat: 3:04PM
 
   # Config relating to colors and styles.
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#color-attributes
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#color-attributes
   theme:
     # Border color of focused window
     activeBorderColor:
@@ -191,7 +191,7 @@ gui:
       - blue
 
     # Background color of selected line.
-    # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#highlighting-the-selected-line
+    # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#highlighting-the-selected-line
     selectedLineBgColor:
       - blue
 
@@ -389,8 +389,8 @@ git:
   # 'pager', 'externalDiffCommand', and 'useExternalDiffGitConfig' are mutually
   # exclusive; set at most one per entry.
   #
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
-  # for more information.
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Custom_Pagers.md for
+  # more information.
   pagers: []
 
   # Config relating to committing
@@ -435,21 +435,21 @@ git:
   autoRefresh: true
 
   # If true, poll the repo periodically for external ref changes (commits, branch
-  # updates, checkouts made outside lazygit) and refresh when one is detected.
+  # updates, checkouts made outside malasgit) and refresh when one is detected.
   # Independent of autoRefresh, which only governs the files panel.
   autoDetectExternalChanges: true
 
-  # If not "none", lazygit will automatically fast-forward local branches to match
-  # their upstream after fetching. Applies to branches that are not the currently
-  # checked out branch, and only to those that are strictly behind their upstream
-  # (as opposed to diverged).
+  # If not "none", malasgit will automatically fast-forward local branches to
+  # match their upstream after fetching. Applies to branches that are not the
+  # currently checked out branch, and only to those that are strictly behind their
+  # upstream (as opposed to diverged).
   # Possible values: 'none' | 'onlyMainBranches' | 'allBranches'
   autoForwardBranches: onlyMainBranches
 
   # If true, pass the --all arg to git fetch
   fetchAll: true
 
-  # If true, lazygit will automatically stage files that used to have merge
+  # If true, malasgit will automatically stage files that used to have merge
   # conflicts but no longer do; and it will also ask you if you want to continue a
   # merge or rebase if you've resolved all conflicts. If false, it won't do either
   # of these things.
@@ -482,13 +482,13 @@ git:
   # If true, do not allow force pushes
   disableForcePushing: false
 
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-commit-message-prefix
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#predefined-commit-message-prefix
   commitPrefix: []
 
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-commit-message-prefix
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#predefined-commit-message-prefix
   commitPrefixes: {}
 
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#predefined-branch-name-prefix
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#predefined-branch-name-prefix
   branchPrefix: ""
 
   # If true, parse emoji strings in commit messages e.g. render :rocket: as 🚀
@@ -508,7 +508,7 @@ git:
     # This determines whether the git graph is rendered in the commits panel
     # One of 'always' | 'never' | 'when-maximised'
     #
-    # Can be toggled from within lazygit with `Log menu -> Show git graph`
+    # Can be toggled from within malasgit with `Log menu -> Show git graph`
     # (`<ctrl+l>` in the commits window by default).
     showGraph: always
 
@@ -559,8 +559,8 @@ refresher:
   # Auto-fetch can be disabled via option 'git.autoFetch'.
   fetchInterval: 60
 
-  # Interval in seconds at which lazygit polls for external ref changes (commits,
-  # branch updates, checkouts made outside lazygit).
+  # Interval in seconds at which malasgit polls for external ref changes (commits,
+  # branch updates, checkouts made outside malasgit).
   # Detection can be disabled via option 'git.autoDetectExternalChanges'.
   externalChangeCheckInterval: 2
 
@@ -585,7 +585,7 @@ os:
   # closed.
   editAtLineAndWait: ""
 
-  # Whether lazygit suspends until an edit process returns
+  # Whether malasgit suspends until an edit process returns
   editInTerminal: false
 
   # For opening a directory in an editor
@@ -603,27 +603,54 @@ os:
   openLink: ""
 
   # CopyToClipboardCmd is the command for copying to clipboard.
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-command-for-copying-to-and-pasting-from-clipboard
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-command-for-copying-to-and-pasting-from-clipboard
   copyToClipboardCmd: ""
 
   # ReadFromClipboardCmd is the command for reading the clipboard.
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-command-for-copying-to-and-pasting-from-clipboard
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-command-for-copying-to-and-pasting-from-clipboard
   readFromClipboardCmd: ""
 
   # A shell startup file containing shell aliases or shell functions. This will be
   # sourced before running any shell commands, so that shell functions are
   # available in the `:` command prompt or even in custom commands.
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#using-aliases-or-functions-in-shell-commands
+  # See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#using-aliases-or-functions-in-shell-commands
   shellFunctionsFile: ""
+
+# Config relating to optional AI integrations, e.g. generating commit messages
+# from staged changes.
+ai:
+  # If true, the 'g' keybinding in the commit message panel generates a commit
+  # message using the configured AI provider.
+  enabled: false
+
+  # OpenAI-compatible chat-completions endpoint. Examples:
+  # `https://api.openai.com/v1/chat/completions`,
+  # `http://localhost:11434/v1/chat/completions` for Ollama.
+  endpoint: ""
+
+  # Model name to send in the request body (e.g. `gpt-4o-mini`, `llama3.1`,
+  # `qwen2.5-coder`).
+  model: ""
+
+  # API key for the AI provider. Prefer the `AI_API_KEY` environment variable to
+  # keep the key out of dotfiles. If both are set, the environment variable wins.
+  apiKey: ""
+
+  # HTTP timeout in seconds for the AI request. Defaults to 30.
+  timeout: 30
+
+  # Maximum size of the diff sent to the AI in bytes. Diffs larger than this are
+  # truncated before sending. Defaults to 50000.
+  maxDiffSize: 50000
 
 # If true, don't display introductory popups upon opening Lazygit.
 disableStartupPopups: false
 
 # User-configured commands that can be invoked from within Lazygit
-# See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Command_Keybindings.md
+# See https://github.com/itokun99/malasgit/blob/master/docs/Custom_Command_Keybindings.md
 customCommands: []
 
-# See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-pull-request-urls
+# See https://github.com/itokun99/malasgit/blob/master/docs/Config.md#custom-pull-request-urls
 services: {}
 
 # What to do when opening Lazygit outside of a git repo.
@@ -640,7 +667,7 @@ promptToReturnFromSubprocess: true
 
 # Keybindings.
 # Each binding can be a single key or a list of keys; see
-# https://github.com/jesseduffield/lazygit/blob/master/docs/keybindings/Custom_Keybindings.md
+# https://github.com/itokun99/malasgit/blob/master/docs/keybindings/Custom_Keybindings.md
 # for the syntax.
 keybinding:
   universal:
@@ -825,6 +852,7 @@ keybinding:
     bulkMenu: b
   commitMessage:
     commitMenu: <ctrl+o>
+    generateMessage: g
 ```
 <!-- END CONFIG YAML -->
 
@@ -908,16 +936,16 @@ It is used, for example, when pasting a commit message into the commit message p
 
 There are two commands for opening files, `o` for "open" and `e` for "edit". `o` acts as if the file was double-clicked in the Finder/Explorer, so it also works for non-text files, whereas `e` opens the file in an editor. `e` can also jump to the right line in the file if you invoke it from the staging panel, for example.
 
-To tell lazygit which editor to use for the `e` command, the easiest way to do that is to provide an editPreset config, e.g.
+To tell malasgit which editor to use for the `e` command, the easiest way to do that is to provide an editPreset config, e.g.
 
 ```yaml
 os:
   editPreset: 'vscode'
 ```
 
-Supported presets are `vim`, `nvim`, `nvim-remote`, `lvim`, `emacs`, `nano`, `micro`, `vscode`, `sublime`, `bbedit`, `kakoune`, `helix`, `xcode`, `zed` and `acme`. In many cases lazygit will be able to guess the right preset from your $(git config core.editor), or an environment variable such as $VISUAL or $EDITOR.
+Supported presets are `vim`, `nvim`, `nvim-remote`, `lvim`, `emacs`, `nano`, `micro`, `vscode`, `sublime`, `bbedit`, `kakoune`, `helix`, `xcode`, `zed` and `acme`. In many cases malasgit will be able to guess the right preset from your $(git config core.editor), or an environment variable such as $VISUAL or $EDITOR.
 
-`nvim-remote` is an experimental preset for when you have invoked lazygit from within a neovim process, allowing lazygit to open the file from within the parent process rather than spawning a new one.
+`nvim-remote` is an experimental preset for when you have invoked malasgit from within a neovim process, allowing malasgit to open the file from within the parent process rather than spawning a new one.
 
 If for some reason you are not happy with the default commands from a preset, or there simply is no preset for your editor, you can customize the commands by setting the `edit`, `editAtLine`, and `editAtLineAndWait` options, e.g.:
 
@@ -930,13 +958,13 @@ os:
   openDirInEditor: 'myeditor {{dir}}'
 ```
 
-The `editInTerminal` option is used to decide whether lazygit needs to suspend itself to the background before calling the editor. It should really be named `suspend` because for some cases like when lazygit is opened from within a neovim session and you're using the `nvim-remote` preset, you're technically still in a terminal. Nonetheless we're sticking with the name `editInTerminal` for backwards compatibility.
+The `editInTerminal` option is used to decide whether malasgit needs to suspend itself to the background before calling the editor. It should really be named `suspend` because for some cases like when malasgit is opened from within a neovim session and you're using the `nvim-remote` preset, you're technically still in a terminal. Nonetheless we're sticking with the name `editInTerminal` for backwards compatibility.
 
-Contributions of new editor presets are welcome; see the `getPreset` function in [`editor_presets.go`](https://github.com/jesseduffield/lazygit/blob/master/pkg/config/editor_presets.go).
+Contributions of new editor presets are welcome; see the `getPreset` function in [`editor_presets.go`](https://github.com/itokun99/malasgit/blob/master/pkg/config/editor_presets.go).
 
 ## Using aliases or functions in shell commands
 
-Lazygit has a command prompt (`:`) for quickly executing shell commands without having to quit lazygit or switch to a different terminal. Most people find it convenient to have their usual shell aliases or shell functions available at this prompt. To achieve this, put your alias definitions in a separate shell startup file (which you source from your normal startup file, i.e. from `.bashrc` or `.zshrc`), and then tell lazygit about this file like so:
+Lazygit has a command prompt (`:`) for quickly executing shell commands without having to quit malasgit or switch to a different terminal. Most people find it convenient to have their usual shell aliases or shell functions available at this prompt. To achieve this, put your alias definitions in a separate shell startup file (which you source from your normal startup file, i.e. from `.bashrc` or `.zshrc`), and then tell malasgit about this file like so:
 
 ```yml
 os:
@@ -945,22 +973,22 @@ os:
 
 For many people it might work well enough to use their entire shell config file (`~/.bashrc` or `~/.zshrc`) as the `shellFunctionsFile`, but these config files typically do a lot more than defining aliases (e.g. initialize the completion system, start an ssh-agent, etc.) and this may unnecessarily delay execution of shell commands.
 
-When using zsh, aliases can't be used here, but functions can. It is easy to convert your existing aliases into functions, just change `alias l="ls -la"` to `l() ls -la`, for example. This way it will work as before both in the shell and in lazygit.
+When using zsh, aliases can't be used here, but functions can. It is easy to convert your existing aliases into functions, just change `alias l="ls -la"` to `l() ls -la`, for example. This way it will work as before both in the shell and in malasgit.
 
 Note that the shell aliases file is not only used when executing shell commands, but also for [custom commands](Custom_Command_Keybindings.md), and when opening a file in the editor.
 
 ## Overriding default config file location
 
-To override the default config directory, use `CONFIG_DIR="$HOME/.config/lazygit"`. This directory contains the config file in addition to some other files lazygit uses to keep track of state across sessions.
+To override the default config directory, use `CONFIG_DIR="$HOME/.config/malasgit"`. This directory contains the config file in addition to some other files malasgit uses to keep track of state across sessions.
 
 To override the individual config file used, use the `--use-config-file` arg or the `LG_CONFIG_FILE` env var.
 
 If you want to merge a specific config file into a more general config file, perhaps for the sake of setting some theme-specific options, you can supply a list of comma-separated config file paths, like so:
 
 ```sh
-lazygit --use-config-file="$HOME/.base_lg_conf,$HOME/.light_theme_lg_conf"
+malasgit --use-config-file="$HOME/.base_lg_conf,$HOME/.light_theme_lg_conf"
 or
-LG_CONFIG_FILE="$HOME/.base_lg_conf,$HOME/.light_theme_lg_conf" lazygit
+LG_CONFIG_FILE="$HOME/.base_lg_conf,$HOME/.light_theme_lg_conf" malasgit
 ```
 
 ## Scroll-off Margin
@@ -1111,7 +1139,7 @@ keybinding:
 
 A few keybindings have different defaults on macOS than on Linux and Windows (e.g. word-wise cursor movement in text inputs uses `alt` on macOS but `ctrl` elsewhere). Lazygit picks these based on the OS it's running on, but you can override that with the `LAZYGIT_KEYBINDING_PLATFORM` environment variable. Set it to `darwin`, `linux`, or `windows`; any other value is ignored and the actual OS is used.
 
-This is useful when running lazygit in a Linux container that you access over ssh from a Mac, where you'd rather use the macOS keybindings.
+This is useful when running malasgit in a Linux container that you access over ssh from a Mac, where you'd rather use the macOS keybindings.
 
 ### Example Keybindings For Colemak Users
 
@@ -1249,7 +1277,7 @@ Result:
 
 ## Launching not in a repository behaviour
 
-By default, when launching lazygit from a directory that is not a repository, you will be prompted to choose if you would like to initialize a repo. You can override this behaviour in the config with one of the following:
+By default, when launching malasgit from a directory that is not a repository, you will be prompted to choose if you would like to initialize a repo. You can override this behaviour in the config with one of the following:
 
 ```yaml
 # for default prompting behaviour
