@@ -9,448 +9,84 @@ A simple terminal UI for git commands
 
 [![GitHub Releases](https://img.shields.io/github/downloads/itokun99/malasgit/total)](https://github.com/itokun99/malasgit/releases) [![Go Report Card](https://goreportcard.com/badge/github.com/itokun99/malasgit)](https://goreportcard.com/report/github.com/itokun99/malasgit) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/f46416b715d74622895657935fcada21)](https://app.codacy.com/gh/itokun99/malasgit/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/f46416b715d74622895657935fcada21)](https://app.codacy.com/gh/itokun99/malasgit/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage) [![golangci-lint](https://img.shields.io/badge/linted%20by-golangci--lint-brightgreen)](https://golangci-lint.run/) [![GitHub tag](https://img.shields.io/github/v/tag/itokun99/malasgit?color=blue)](https://github.com/itokun99/malasgit/releases/latest) [![homebrew](https://img.shields.io/homebrew/v/malasgit?color=blue)](https://formulae.brew.sh/formula/malasgit)
 
-![commit_and_push](../assets/demo/commit_and_push-compressed.gif)
-
 </div>
 
 ## Credits
 
-<p align="center">
- Malasgit is a fork of <a href="https://github.com/jesseduffield/lazygit">jesseduffield/lazygit</a>, originally created and maintained by Jesse Duffield. This fork is maintained by <a href="https://github.com/itokun99">@itokun99</a>.
-</p>
-
-## Elevator Pitch
-
-Rant time: You've heard it before, git is _powerful_, but what good is that power when everything is so damn hard to do? Interactive rebasing requires you to edit a goddamn TODO file in your editor? _Are you kidding me?_ To stage part of a file you need to use a command line program to step through each hunk and if a hunk can't be split down any further but contains code you don't want to stage, you have to edit an arcane patch file _by hand_? _Are you KIDDING me?!_ Sometimes you get asked to stash your changes when switching branches only to realise that after you switch and unstash that there weren't even any conflicts and it would have been fine to just checkout the branch directly? _YOU HAVE GOT TO BE KIDDING ME!_
-
-If you're a mere mortal like me and you're tired of hearing how powerful git is when in your daily life it's a powerful pain in your ass, malasgit might be for you.
-
-## Table of contents
-
-- [Credits](#credits)
-- [Elevator Pitch](#elevator-pitch)
-- [Table of contents](#table-of-contents)
-- [Features](#features)
-  - [Stage individual lines](#stage-individual-lines)
-  - [Interactive Rebase](#interactive-rebase)
-  - [Cherry-pick](#cherry-pick)
-  - [Bisect](#bisect)
-  - [Nuke the working tree](#nuke-the-working-tree)
-  - [Amend an old commit](#amend-an-old-commit)
-  - [Filter](#filter)
-  - [Invoke a custom command](#invoke-a-custom-command)
-  - [Worktrees](#worktrees)
-  - [Rebase magic (custom patches)](#rebase-magic-custom-patches)
-  - [Rebase from marked base commit](#rebase-from-marked-base-commit)
-  - [Undo](#undo)
-  - [Commit graph](#commit-graph)
-  - [Compare two commits](#compare-two-commits)
-- [Tutorials](#tutorials)
-- [Installation](#installation)
-  - [Binary Releases](#binary-releases)
-  - [Dev container](#dev-container-feature)
-  - [Homebrew](#homebrew)
-  - [MacPorts](#macports)
-  - [Void Linux](#void-linux)
-  - [Scoop (Windows)](#scoop-windows)
-  - [gah (Linux and Mac OS)](#gah-linux-and-mac-os)
-  - [Arch Linux](#arch-linux)
-  - [Fedora / Amazon Linux 2023 / CentOS Stream](#fedora--amazon-linux-2023--centos-stream)
-    - [Fedora / RHEL Derivatives (Terra)](#fedora--rhel-derivatives-terra)
-  - [Solus Linux](#solus-linux)
-  - [Debian and Ubuntu](#debian-and-ubuntu)
-  - [Funtoo Linux](#funtoo-linux)
-  - [Gentoo Linux](#gentoo-linux)
-  - [openSUSE](#opensuse)
-  - [NixOS](#nixos)
-  - [Flox](#flox)
-  - [FreeBSD](#freebsd)
-  - [Termux](#termux)
-  - [Conda](#conda)
-  - [Go](#go)
-  - [Chocolatey (Windows)](#chocolatey-windows)
-  - [Manual](#manual)
-- [Usage](#usage)
-  - [Keybindings](#keybindings)
-  - [Changing Directory On Exit](#changing-directory-on-exit)
-  - [Undo/Redo](#undoredo)
-- [Configuration](#configuration)
-  - [Custom Pagers](#custom-pagers)
-  - [Custom Commands](#custom-commands)
-  - [Git flow support](#git-flow-support)
-- [Contributing](#contributing)
-  - [Debugging Locally](#debugging-locally)
-- [FAQ](#faq)
-  - [What do the commit colors represent?](#what-do-the-commit-colors-represent)
-- [Alternatives](#alternatives)
+Malasgit is a fork of [jesseduffield/lazygit](https://github.com/jesseduffield/lazygit), originally created and maintained by Jesse Duffield. This fork is maintained by [@itokun99](https://github.com/itokun99).
 
 ## Features
 
 ### Stage individual lines
 
-Press space on the selected line to stage it, or press `v` to start selecting a range of lines. You can also press `a` to select the entirety of the current hunk.
-
-![stage_lines](../assets/demo/stage_lines-compressed.gif)
+Press space on the selected line to stage it, `v` to start selecting a range, or `a` to select the entirety of the current hunk.
 
 ### Interactive Rebase
 
-Press `i` to start an interactive rebase. Then squash (`s`), fixup (`f`), drop (`d`), edit (`e`), move up (`ctrl+k`) or move down (`ctrl+j`) any of the TODO commits, before continuing the rebase by bringing up the rebase options menu with `m` and then selecting `continue`.
-
-You can also perform any of these actions as a once-off (e.g. pressing `s` on a commit to squash it) without explicitly starting a rebase.
-
-This demo also uses shift+down to select a range of commits to move and fixup.
-
-![interactive_rebase](../assets/demo/interactive_rebase-compressed.gif)
+Press `i` to start an interactive rebase. Then squash (`s`), fixup (`f`), drop (`d`), edit (`e`), move up (`ctrl+k`) or move down (`ctrl+j`) any of the TODO commits, before continuing the rebase by bringing up the rebase options menu with `m` and selecting `continue`. The same actions work as a once-off without explicitly starting a rebase.
 
 ### Cherry-pick
 
-Press `shift+c` on a commit to copy it and press `shift+v` to paste (cherry-pick) it.
-
-![cherry_pick](../assets/demo/cherry_pick-compressed.gif)
+Press `shift+c` on a commit to copy it and `shift+v` to paste (cherry-pick) it.
 
 ### Bisect
 
-Press `b` in the commits view to mark a commit as good/bad in order to begin a git bisect.
-
-![bisect](../assets/demo/bisect-compressed.gif)
+Press `b` in the commits view to mark a commit as good/bad and start a git bisect.
 
 ### Nuke the working tree
 
-For when you really want to just get rid of anything that shows up when you run `git status` (and yes that includes dirty submodules) [kidpix style](https://www.youtube.com/watch?v=N4E2B_k2Bss), press `shift+d` to bring up the reset options menu and then select the 'nuke' option.
-
-![Nuke working tree](../assets/demo/nuke_working_tree-compressed.gif)
+Press `shift+d` to bring up the reset options menu, then select 'nuke' to clear anything `git status` shows — including dirty submodules.
 
 ### Amend an old commit
 
-Pressing `shift+a` on any commit will amend that commit with the currently staged changes (running an interactive rebase in the background).
-
-![amend_old_commit](../assets/demo/amend_old_commit-compressed.gif)
+Pressing `shift+a` on any commit amends that commit with the currently staged changes (running an interactive rebase in the background).
 
 ### Filter
 
-You can filter a view with `/`. Here we filter down our branches view and then hit `enter` to view its commits.
-
-![filter](../assets/demo/filter-compressed.gif)
+Filter any view with `/` and press `enter` to drill in.
 
 ### Invoke a custom command
 
-Malasgit has a very flexible [custom command system](docs/Custom_Command_Keybindings.md). In this example a custom command is defined which emulates the built-in branch checkout action.
-
-![custom_command](../assets/demo/custom_command-compressed.gif)
+Malasgit has a flexible [custom command system](docs/Custom_Command_Keybindings.md) for adding your own actions.
 
 ### Worktrees
 
-You can create worktrees to have multiple branches going at once without the need for stashing or creating WIP commits when switching between them. Press `w` in the branches view to create a worktree from the selected branch and switch to it.
-
-![worktree_create_from_branches](../assets/demo/worktree_create_from_branches-compressed.gif)
+Press `w` in the branches view to create a worktree from the selected branch and switch to it, so you can keep multiple branches going at once without stashing or WIP commits.
 
 ### Rebase magic (custom patches)
 
-You can build a custom patch from an old commit and then remove the patch from the commit, split out a new commit, apply the patch in reverse to the index, and more.
-
-In this example we have a redundant comment that we want to remove from an old commit. We hit `<enter>` on the commit to view its files, then `<enter>` on a file to focus the patch, then `<space>` to add the comment line to our custom patch, and then `ctrl+p` to view the custom patch options; selecting to remove the patch from the current commit.
-
-Learn more in the [Rebase magic Youtube tutorial](https://youtu.be/4XaToVut_hs).
-
-![custom_patch](../assets/demo/custom_patch-compressed.gif)
+Build a custom patch from an old commit, then remove the patch from the commit, split out a new commit, apply the patch in reverse to the index, and more. Hit `<enter>` on a commit to view its files, `<enter>` on a file to focus the patch, `<space>` to add lines to the custom patch, then `ctrl+p` for patch options. See the [Rebase magic tutorial](https://youtu.be/4XaToVut_hs) for a walkthrough.
 
 ### Rebase from marked base commit
 
-Say you're on a feature branch that was itself branched off of the develop branch, and you've decided you'd rather be branching off the master branch. You need a way to rebase only the commits from your feature branch. In this demo we check to see which was the last commit on the develop branch, then press `shift+b` to mark that commit as our base commit, then press `r` on the master branch to rebase onto it, only bringing across the commits from our feature branch. Then we push our changes with `shift+p`.
-
-![rebase_onto](../assets/demo/rebase_onto-compressed.gif)
+Press `shift+b` on a commit to mark it as the base, then `r` on the target branch to rebase only the commits from your feature branch onto it.
 
 ### Undo
 
-You can undo the last action by pressing `z` and redo with `shift+z`. Here we drop a couple of commits and then undo the actions.
-Undo uses the reflog which is specific to commits and branches so we can't undo changes to the working tree or stash.
-
-[More info](/docs/Undoing.md)
-
-![undo](../assets/demo/undo-compressed.gif)
+Press `z` to undo the last action and `shift+z` to redo. Undo uses the reflog, so it covers commits and branches but not the working tree or stash. See [docs/Undoing.md](docs/Undoing.md) for details.
 
 ### Commit graph
 
-When viewing the commit graph in an enlarged window (use `+` and `_` to cycle screen modes), the commit graph is shown. Colours correspond to the commit authors, and as you navigate down the graph, the parent commits of the selected commit are highlighted.
-
-![commit_graph](../assets/demo/commit_graph-compressed.gif)
+In an enlarged window (cycle screen modes with `+` and `_`), the commit graph is shown. Colours correspond to commit authors; the selected commit's parents are highlighted as you navigate.
 
 ### Compare two commits
 
-If you press `shift+w` on a commit (or branch/ref) a menu will open that allows you to mark that commit so that any other commit you select will be diffed against it. Once you've selected the second commit, you'll see the diff in the main view and if you press `<enter>` you'll see the files of the diff. You can press `shift+w` to view the diff menu again to see options like reversing the diff direction or exiting diff mode. You can also exit diff mode by pressing `<escape>`.
-
-![diff_commits](../assets/demo/diff_commits-compressed.gif)
+Press `shift+w` on a commit or ref to mark it; the next commit you select will be diffed against it. Press `shift+w` again to access the diff menu (reverse direction, exit diff mode), or `<escape>` to exit.
 
 ### Show GitHub pull requests
 
-In the branches panel, malasgit can show which of your branches have an associated GitHub pull request by showing a GitHub icon next to the branch name; its color shows the state of the PR (open, merged, etc.). For those that have one, you can press `shift-G` to open the PR in the browser. There is no configuration needed to enable this for github.com, but it requires the [`gh`](https://cli.github.com/) tool to be installed, and you need to do `gh auth login` once to allow malasgit to access GitHub. For GitHub Enterprise, also run `gh auth login --hostname <webDomain>` and add a [`services` entry](docs/Config.md#custom-pull-request-urls) for the host with the `github` provider.
-
-## Tutorials
-
-[<img src="https://i.imgur.com/sVEktDn.png">](https://youtu.be/CPLdltN7wgE)
-
-- [15 Lazygit Features in 15 Minutes](https://youtu.be/CPLdltN7wgE)
-- [Basics Tutorial](https://youtu.be/VDXvbHZYeKY)
-- [Rebase Magic Tutorial](https://youtu.be/4XaToVut_hs)
+In the branches panel, branches with an associated GitHub PR show a GitHub icon whose colour reflects PR state (open, merged, etc.). Press `shift-G` to open the PR in the browser. Works out of the box for github.com once the [`gh`](https://cli.github.com/) CLI is installed and `gh auth login` has been run; for GitHub Enterprise add a [`services` entry](docs/Config.md#custom-pull-request-urls) with the `github` provider.
 
 ## Installation
 
-[![Packaging status](https://repology.org/badge/vertical-allrepos/malasgit.svg?columns=3)](https://repology.org/project/malasgit/versions)
-
-_Most of the above packages are maintained by third parties so be sure to vet them yourself and confirm that the maintainer is a trustworthy looking person who attends local sports games and gives back to their communities with barbeque fundraisers etc_
-
 ### Binary Releases
 
-For Windows, Mac OS(10.12+) or Linux, you can download a binary release [here](../../releases).
-
-### Dev container feature
-
-If you want to use malasgit in e.g. one of your GitHub Codespaces, there is a third-party [dev container feature](https://github.com/GeorgOfenbeck/features/tree/main/src/malasgit-linuxbinary) based on the binary releases mentioned above.
+Download a binary for Windows, macOS (10.12+), or Linux from the [releases page](https://github.com/itokun99/malasgit/releases).
 
 ### Homebrew
 
-It works with Linux, too.
-
 ```sh
 brew install malasgit
-```
-
-### MacPorts
-
-Latest version built from github releases.
-Tap:
-
-```
-sudo port install malasgit
-```
-
-### Void Linux
-
-Packages for Void Linux are available in the distro repo
-
-They follow upstream latest releases
-
-```sh
-sudo xbps-install -S malasgit
-```
-
-### Scoop (Windows)
-
-You can install `malasgit` using [scoop](https://scoop.sh/). It's in the `extras` bucket:
-
-```sh
-# Add the extras bucket
-scoop bucket add extras
-
-# Install malasgit
-scoop install malasgit
-```
-
-### gah (Linux and Mac OS)
-
-You can install `malasgit` using [gah](https://github.com/marverix/gah/):
-
-```sh
-gah install malasgit
-```
-
-### Arch Linux
-
-Packages for Arch Linux are available via pacman and AUR (Arch User Repository).
-
-There are two packages. The stable one which is built with the latest release
-and the git version which builds from the most recent commit.
-
-- Stable: `sudo pacman -S malasgit`
-- Development: <https://aur.archlinux.org/packages/malasgit-git/>
-
-Instruction of how to install AUR content can be found here:
-<https://wiki.archlinux.org/index.php/Arch_User_Repository>
-
-### Fedora / Amazon Linux 2023 / CentOS Stream
-
-Packages for Fedora, Amazon Linux 2023 and CentOS Stream are available via
-[Copr](https://copr.fedorainfracloud.org/coprs/dejan/malasgit/) (Cool Other Package Repo).
-
-```sh
-sudo dnf copr enable dejan/malasgit
-sudo dnf install malasgit
-```
-
-These packages are built using the RPM spec file located here: https://codeberg.org/dejan/rpm-malasgit
-
-You should be able to build RPMs for Fedora 41 or older, and other Fedora derivatives using the
-SRPM (Source RPM) file that you can grab from the latest COPR build.
-
-#### Fedora / RHEL Derivatives (Terra)
-
-Packages for Fedora and RHEL derivatives are also available from the [Terra Repository](https://terra.fyralabs.com/).
-
-```sh
-sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-sudo dnf install malasgit
-```
-
-(Install guide for Atomic/EL can be found on their [README](https://github.com/terrapkg/packages/pull/9747))
-
-Terra also has `malasgit-doc`, which contains the contents of the [docs](https://github.com/itokun99/malasgit/tree/master/docs) folder.
-
-### Solus Linux
-
-```sh
-sudo eopkg install malasgit
-```
-
-### Debian and Ubuntu
-
-For **Debian 13 "Trixie", Sid**, and later, or **Ubuntu 25.10 "Questing Quokka"** and later:
-
-```sh
-sudo apt install malasgit
-```
-
-For **Debian 12 "Bookworm", Ubuntu 25.04 "Plucky Puffin"** and earlier:
-
-```sh
-MALASGIT_VERSION=$(curl -s "https://api.github.com/repos/itokun99/malasgit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
-MALASGIT_ARCH=$(uname -m | sed -e 's/aarch64/arm64/')
-curl -Lo malasgit.tar.gz "https://github.com/itokun99/malasgit/releases/download/v${MALASGIT_VERSION}/malasgit_${MALASGIT_VERSION}_Linux_${MALASGIT_ARCH}.tar.gz"
-tar xf malasgit.tar.gz malasgit
-sudo install malasgit -D -t /usr/local/bin/
-```
-
-Verify the correct installation of malasgit:
-
-```sh
-malasgit --version
-```
-
-### Funtoo Linux
-
-Funtoo Linux has an autogenerated malasgit package in [dev-kit](https://github.com/funtoo/dev-kit/tree/1.4-release/dev-vcs/malasgit):
-
-```sh
-sudo emerge dev-vcs/malasgit
-```
-
-### Gentoo Linux
-
-Malasgit is not (yet) in main Gentoo portage, however an ebuild is available in [GURU overlay](https://github.com/gentoo-mirror/guru/tree/master/dev-vcs/malasgit)
-
-You can either add the overlay to your system and install malasgit as usual:
-
-```sh
-sudo eselect repository enable guru
-sudo emaint sync -r guru
-sudo emerge dev-vcs/malasgit
-```
-
-### openSUSE
-
-The malasgit package is currently built in [devel:languages:go/malasgit](https://build.opensuse.org/package/show/devel:languages:go/malasgit).
-
-To install malasgit on openSUSE Tumbleweed run:
-
-```sh
-sudo zypper ar https://download.opensuse.org/repositories/devel:/languages:/go/openSUSE_Factory/devel:languages:go.repo
-sudo zypper ref && sudo zypper in malasgit
-```
-
-To install malasgit on openSUSE Leap run:
-
-```sh
-source /etc/os-release
-sudo zypper ar https://download.opensuse.org/repositories/devel:/languages:/go/$VERSION_ID/devel:languages:go.repo
-sudo zypper ref && sudo zypper in malasgit
-```
-
-### NixOS
-
-#### Using malasgit from nixpkgs
-
-On NixOS, malasgit is packaged with nix and distributed via nixpkgs.
-You can try malasgit without installing it with:
-
-```sh
-nix-shell -p malasgit
-# or with flakes enabled
-nix run nixpkgs#malasgit
-```
-Or you can add malasgit to your `configuration.nix` using the `environment.systemPackages` option.
-More details can be found via NixOS search [page](https://search.nixos.org/).
-
-#### Using the official malasgit flake
-
-This repository includes a nix flake that provides the latest development version and additional development tools:
-
-**Run malasgit directly from the repository:**
-```sh
-nix run github:itokun99/malasgit
-# or from a local clone
-nix run .
-```
-
-**Build malasgit from source:**
-```sh
-nix build github:itokun99/malasgit
-# or from a local clone
-nix build .
-```
-
-**Development environment:**
-For contributors, the flake provides a development shell with Go toolchain, development tools, and dependencies:
-```sh
-nix develop github:itokun99/malasgit
-# or from a local clone
-nix develop
-```
-
-The development shell includes:
-- Go toolchain
-- git and make
-- Proper environment variables for development
-
-**Using in other flakes:**
-The flake also provides an overlay for easy integration into other flake-based projects:
-```nix
-{
-  inputs.malasgit.url = "github:itokun99/malasgit";
-
-  outputs = { self, nixpkgs, malasgit }: {
-    # Use the overlay
-    nixpkgs.overlays = [ malasgit.overlays.default ];
-  };
-}
-```
-
-### Flox
-
-Malasgit can be installed into a Flox environment as follows.
-
-```sh
-flox install malasgit
-```
-
-More details about Flox can be found on [their website](https://flox.dev/).
-
-### FreeBSD
-
-```sh
-pkg install malasgit
-```
-
-### Termux
-
-```sh
-apt install malasgit
-```
-
-### Conda
-
-Released versions are available for different platforms, see <https://anaconda.org/conda-forge/malasgit>
-
-```sh
-conda install -c conda-forge malasgit
 ```
 
 ### Go
@@ -459,114 +95,53 @@ conda install -c conda-forge malasgit
 go install github.com/itokun99/malasgit@latest
 ```
 
-Please note:
-If you get an error claiming that malasgit cannot be found or is not defined, you
-may need to add `~/go/bin` to your $PATH (macOS/Linux), or `%HOME%\go\bin`
-(Windows). Not to be mistaken for `C:\Go\bin` (which is for Go's own binaries,
-not apps like malasgit).
+If `malasgit` is not found afterwards, add `~/go/bin` (macOS/Linux) or `%HOME%\go\bin` (Windows) to your `PATH`.
 
-### Chocolatey (Windows)
-
-You can install `malasgit` using [Chocolatey](https://chocolatey.org/):
+### Build from Source
 
 ```sh
-choco install malasgit
-```
-
-### Manual
-
-You'll need to [install Go](https://golang.org/doc/install)
-
-```
 git clone https://github.com/itokun99/malasgit.git
 cd malasgit
 go install
 ```
 
-You can also use `go run main.go` to compile and run in one go (pun definitely intended)
-
 ## Usage
 
-Call `malasgit` in your terminal inside a git repository.
+Run `malasgit` inside a git repository:
 
 ```sh
 $ malasgit
 ```
 
-If you want, you can
-also add an alias for this with `echo "alias lg='malasgit'" >> ~/.zshrc` (or
-whichever rc file you're using).
+Optionally add an alias so you can call it as `lg`:
 
-### Keybindings
-
-You can check out the list of keybindings [here](/docs/keybindings).
-
-### Changing Directory On Exit
-
-If you change repos in malasgit and want your shell to change directory into that repo on exiting malasgit, add this to your `~/.zshrc` (or other rc file):
-
+```sh
+echo "alias lg='malasgit'" >> ~/.zshrc
 ```
-lg()
-{
-    export MALASGIT_NEW_DIR_FILE=~/.malasgit/newdir
-
-    malasgit "$@"
-
-    if [ -f $MALASGIT_NEW_DIR_FILE ]; then
-            cd "$(cat $MALASGIT_NEW_DIR_FILE)"
-            rm -f $MALASGIT_NEW_DIR_FILE > /dev/null
-    fi
-}
-```
-
-Then `source ~/.zshrc` and from now on when you call `lg` and exit you'll switch directories to whatever you were in inside malasgit. To override this behaviour you can exit using `shift+Q` rather than just `q`.
-
-### Undo/Redo
-
-See the [docs](/docs/Undoing.md)
 
 ## Configuration
 
-Check out the [configuration docs](docs/Config.md).
-
-### Custom Pagers
-
-See the [docs](docs/Custom_Pagers.md)
-
-### Custom Commands
-
-If malasgit is missing a feature, there's a good chance you can implement it yourself with a custom command!
-
-See the [docs](docs/Custom_Command_Keybindings.md)
-
-### Git flow support
-
-Malasgit supports [Gitflow](https://github.com/nvie/gitflow) (or [git-flow-next](https://github.com/gittower/git-flow-next)) if you have it installed. To understand how the Gitflow model works check out Vincent Driessen's original [post](https://nvie.com/posts/a-successful-git-branching-model/) explaining it. To view Gitflow options from within Malasgit, press `i` from within the branches view.
+See [docs/Config.md](docs/Config.md) for the full configuration reference and [docs/keybindings](docs/keybindings) for the keybinding cheatsheet.
 
 ## Contributing
 
-We love your input! Please check out the [contributing guide](CONTRIBUTING.md).
-For contributor discussion about things not better discussed here in the repo, join the [discord channel](https://discord.gg/ehwFt2t4wt)
-
-<a href="https://discord.gg/ehwFt2t4wt"><img src='../assets/discord.png' width='75'></a>
-
-Check out this [video](https://www.youtube.com/watch?v=kNavnhzZHtk) walking through the creation of a small feature in malasgit if you want an idea of where to get started.
+See [CONTRIBUTING.md](CONTRIBUTING.md). For contributor discussion, join the [discord channel](https://discord.gg/ehwFt2t4wt).
 
 ### Debugging Locally
 
-Run `malasgit --debug` in one terminal tab and `malasgit --logs` in another to view the program and its log output side by side
+Run `malasgit --debug` in one terminal and `malasgit --logs` in another to view the program and its log output side by side.
 
 ## FAQ
 
 ### What do the commit colors represent?
 
-- Green: the commit is included in the master branch
-- Yellow: the commit is not included in the master branch
-- Red: the commit has not been pushed to the upstream branch
+- Green: the commit is included in the master branch.
+- Yellow: the commit is not included in the master branch.
+- Red: the commit has not been pushed to the upstream branch.
 
 ## Alternatives
 
-If you find that malasgit doesn't quite satisfy your requirements, these may be a better fit:
+If malasgit doesn't fit your needs, consider:
 
 - [GitUI](https://github.com/Extrawurst/gitui)
 - [tig](https://github.com/jonas/tig)
